@@ -22,7 +22,7 @@ import {
 import { FAQAccordion } from "@/components/faq";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
-  "Advanced Laser Care & Free Consultation",
+  "Advanced Laser Treatment & Free Consultation",
   "Professional guidance and treatment options for varicose veins, fistula, fissure and piles. Start with a private, free consultation call.",
   "/",
 );
@@ -37,7 +37,7 @@ export default function Home() {
               WELCOME TO DEEPSARA SUPER SPECIALITY LASER CLINIC
             </span>
             <h1>
-              Advanced Laser Care
+              Advanced Laser Treatment
               <br />
               <span className="hero-with">with </span>
               <span>
