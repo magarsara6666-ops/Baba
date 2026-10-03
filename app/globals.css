@@ -385,6 +385,10 @@ svg {
   object-fit: cover;
   object-position: center;
 }
+.consultation-photo img.doctor-portrait-image {
+  object-fit: contain;
+  object-position: center bottom;
+}
 .hero-image-wrap .consultation-photo {
   border-radius: 110px 8px 8px 8px;
   height: 510px;

@@ -333,13 +333,14 @@ export function ConsultationPhoto({ className = "" }: { className?: string }) {
   return (
     <div className={`consultation-photo ${className}`}>
       <Image
-        src="/images/consultation.jpg"
-        alt="Healthcare professional holding a clipboard; illustrative stock photograph, not a member of the clinic team"
+        src="/images/PHOTO-2026-10-03-16-50-39-removebg-preview.png"
+        alt="Clinic doctor wearing a white coat and blue tie"
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
         priority
+        className="doctor-portrait-image"
+        style={{ objectFit: "contain", objectPosition: "center bottom" }}
       />
-      <span className="photo-caption">Illustrative consultation image</span>
     </div>
   );
 }
