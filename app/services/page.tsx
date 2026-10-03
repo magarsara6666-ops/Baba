@@ -1,6 +1,7 @@
 import {
   PageHero,
   ServiceGrid,
+  TreatmentGuide,
   Journey,
   CTASection,
 } from "@/components/shared";
@@ -25,6 +26,7 @@ export default function Services() {
           available approaches.
         </p>
       </section>
+      <TreatmentGuide />
       <Journey />
       <CTASection />
     </>

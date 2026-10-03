@@ -120,6 +120,87 @@ export function ServiceGrid() {
   );
 }
 
+export function TreatmentGuide() {
+  const resources = articles.filter((article) =>
+    ["common-symptoms-of-hemorrhoids", "what-is-an-anal-fissure"].includes(
+      article.slug,
+    ),
+  );
+
+  return (
+    <section
+      className="section soft"
+      aria-label="Conditions and treatments at a glance"
+    >
+      <div className="container">
+        <SectionHeading
+          eyebrow="A QUICK, CLEAR GUIDE"
+          title="Conditions & Treatments at a Glance"
+          text="Simple information to help you understand common concerns and prepare for a consultation."
+        />
+        <div className="treatment-guide-grid">
+          {treatments.map((t) => (
+            <article className="treatment-guide-card" key={t.slug}>
+              <div className="treatment-guide-title">
+                <span className={`guide-marker ${t.color}`} aria-hidden="true" />
+                <h3>{t.short}</h3>
+              </div>
+              <dl>
+                <div>
+                  <dt>Introduction</dt>
+                  <dd>{t.definition}</dd>
+                </div>
+                <div>
+                  <dt>Common causes</dt>
+                  <dd>{t.causes}</dd>
+                </div>
+                <div>
+                  <dt>Signs &amp; symptoms</dt>
+                  <dd>{t.symptoms.join(" · ")}</dd>
+                </div>
+                <div>
+                  <dt>Treatment</dt>
+                  <dd>{t.approaches}</dd>
+                </div>
+              </dl>
+              <Link className="text-link" href={`/services/${t.slug}`}>
+                View {t.short} Treatment
+                <ArrowUpRight size={18} />
+              </Link>
+            </article>
+          ))}
+        </div>
+        <p className="care-note">
+          Symptoms can overlap between conditions. A qualified healthcare
+          professional needs to assess you before recommending treatment.
+        </p>
+
+        <div className="resource-panel">
+          <div className="resource-panel-heading">
+            <span className="eyebrow">PATIENT RESOURCES</span>
+            <h3>Short, Helpful Reading</h3>
+          </div>
+          <div className="resource-links">
+            {resources.map((article) => (
+              <Link key={article.slug} href={`/blog/${article.slug}`}>
+                <span>{article.category}</span>
+                <strong>{article.title}</strong>
+                <small>{article.excerpt}</small>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <nav className="services-next-links" aria-label="Explore the clinic">
+          <Link href="/about">About Us</Link>
+          <Link href="/blog">Health Blog</Link>
+          <Link href="/contact">Contact Us</Link>
+        </nav>
+      </div>
+    </section>
+  );
+}
+
 export function TreatmentComfort() {
   const items = [
     [

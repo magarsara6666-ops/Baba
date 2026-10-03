@@ -209,17 +209,17 @@ export const articles: Article[] = [
     title: "Common Symptoms of Hemorrhoids",
     category: "Piles / Hemorrhoids",
     excerpt:
-      "Why talking about discomfort and bleeding is an important part of seeking care.",
+      "A short guide to itching, swelling, discomfort and bleeding, and when to seek advice.",
     date: "2026-10-03",
     treatment: "piles-hemorrhoids",
     sections: [
       {
-        heading: "You can talk openly",
-        text: "Bowel concerns can feel personal. You can ask for privacy, explain what is troubling you and ask how an examination would be performed.",
+        heading: "Common signs and symptoms",
+        text: "Hemorrhoids may cause itching, discomfort, a lump or swelling, and bright red bleeding after a bowel movement. Other conditions can cause similar symptoms, so an assessment is important.",
       },
       {
-        heading: "Avoid self-diagnosis",
-        text: "Symptoms can overlap across conditions. Use your consultation to ask which assessments are needed rather than choosing a procedure based on symptoms alone.",
+        heading: "When to seek advice",
+        text: "Speak with a healthcare professional if symptoms persist or you notice bleeding. Seek urgent care for heavy or continuous bleeding or severe pain.",
       },
     ],
   },
@@ -228,17 +228,21 @@ export const articles: Article[] = [
     title: "What Is an Anal Fissure?",
     category: "Fissure",
     excerpt:
-      "Understand the terminology and prepare for a conversation with a clinician.",
+      "A simple introduction to anal fissures, common symptoms and available treatment options.",
     date: "2026-10-03",
     treatment: "fissure",
     sections: [
       {
-        heading: "Understand the term",
-        text: "Understanding the name of a condition can help you ask questions, but reading about it cannot confirm that it explains your symptoms.",
+        heading: "What is an anal fissure?",
+        text: "An anal fissure is a small tear at the anal opening. It can cause sharp pain during a bowel movement, burning afterwards and a small amount of bright red blood.",
       },
       {
-        heading: "Discuss a care plan",
-        text: "Ask how the diagnosis is established, which options might apply and when you should arrange follow-up. Mention ongoing symptoms rather than assuming they will settle.",
+        heading: "Common causes",
+        text: "Hard stools, constipation or frequent diarrhoea may contribute. Pain or bleeding can have other causes, so a professional assessment is important.",
+      },
+      {
+        heading: "Treatment options",
+        text: "Treatment may include steps to soften stools, prescribed creams, injections or a procedure for selected persistent fissures. A clinician can explain what is suitable for you.",
       },
     ],
   },

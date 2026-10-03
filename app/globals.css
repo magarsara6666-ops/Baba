@@ -539,6 +539,142 @@ svg {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+.treatment-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.treatment-guide-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 14px 35px rgba(21, 60, 69, 0.05);
+}
+.treatment-guide-title {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 12px;
+}
+.treatment-guide-title h3 {
+  margin: 0;
+  font-size: 24px;
+}
+.guide-marker {
+  width: 10px;
+  height: 38px;
+  flex: 0 0 auto;
+  border-radius: 20px;
+  background: var(--teal);
+}
+.guide-marker.blue {
+  background: #3c678f;
+}
+.guide-marker.sand {
+  background: #a6814a;
+}
+.guide-marker.rose {
+  background: #a95f63;
+}
+.treatment-guide-card dl {
+  margin: 0 0 24px;
+}
+.treatment-guide-card dl > div {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.treatment-guide-card dt {
+  margin-bottom: 5px;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.treatment-guide-card dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.treatment-guide-card .text-link {
+  margin-top: auto;
+}
+.resource-panel {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.75fr) minmax(0, 2fr);
+  gap: 30px;
+  align-items: start;
+  margin-top: 34px;
+  padding: 30px;
+  border-radius: 12px;
+  background: var(--navy);
+  color: #fff;
+}
+.resource-panel-heading h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 26px;
+}
+.resource-panel .eyebrow {
+  color: #a9ddd1;
+}
+.resource-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.resource-links a {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 19px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: background 0.2s, transform 0.2s;
+}
+.resource-links a:hover,
+.resource-links a:focus-visible {
+  background: rgba(255, 255, 255, 0.13);
+  transform: translateY(-2px);
+}
+.resource-links span {
+  color: #a9ddd1;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.resource-links strong {
+  margin: 7px 0;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.35;
+}
+.resource-links small {
+  color: #d9e5e3;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.services-next-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 30px;
+  margin-top: 28px;
+}
+.services-next-links a {
+  color: var(--teal);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .service-card {
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -1731,6 +1867,9 @@ svg {
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .resource-panel {
+    grid-template-columns: 1fr;
+  }
   .service-card h3 {
     min-height: 0;
   }
@@ -2149,6 +2288,14 @@ svg {
   .service-grid {
     grid-template-columns: 1fr;
     gap: 17px;
+  }
+  .treatment-guide-grid,
+  .resource-links {
+    grid-template-columns: 1fr;
+  }
+  .treatment-guide-card,
+  .resource-panel {
+    padding: 23px;
   }
   .service-card {
     padding: 25px;
