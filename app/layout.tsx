@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Deepsara",
   },
   description:
-    "Professional consultation and modern treatment options for varicose veins, fistula, fissure and piles/hemorrhoids.",
+    "Professional consultation and modern treatment options for varicose veins, fistula/fissure and piles/hemorrhoids.",
   icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   ...(clinic.websiteUrl ? { metadataBase: new URL(clinic.websiteUrl) } : {}),
 };

@@ -15,7 +15,12 @@ export const consultationSchema = z
       z.string().email("Enter a valid email address.").max(254),
     ]),
     condition: z.enum(
-      ["Varicose Veins", "Fistula", "Fissure", "Piles / Hemorrhoids", "Other"],
+      [
+        "Varicose Veins",
+        "Fistula / Fissure",
+        "Piles / Hemorrhoids",
+        "Other",
+      ],
       { errorMap: () => ({ message: "Choose your concern." }) },
     ),
     method: z.enum(["Phone", "WhatsApp", "Email"]),

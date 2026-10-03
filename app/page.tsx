@@ -23,7 +23,7 @@ import { FAQAccordion } from "@/components/faq";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Advanced Laser Treatment & Free Consultation",
-  "Professional guidance and treatment options for varicose veins, fistula, fissure and piles. Start with a private, free consultation call.",
+  "Professional guidance and treatment options for varicose veins, fistula/fissure and piles. Start with a private, free consultation call.",
   "/",
 );
 export default function Home() {
@@ -47,7 +47,7 @@ export default function Home() {
             </h1>
             <p className="hero-lead">
               Get professional consultation and modern treatment options for
-              varicose veins, fistula, fissure, and piles/hemorrhoids.
+              varicose veins, fistula/fissure, and piles/hemorrhoids.
             </p>
             <p className="hero-support">
               Have questions about your symptoms? Start with a free consultation
@@ -131,13 +131,8 @@ export default function Home() {
               ],
               [
                 ShieldCheck,
-                "Fissure-related discomfort",
-                "Pain or discomfort you would like to discuss.",
-              ],
-              [
-                Stethoscope,
-                "Fistula-related concerns",
-                "Persistent symptoms that deserve professional evaluation.",
+                "Fistula / fissure concerns",
+                "Pain, discharge or persistent discomfort you would like to discuss.",
               ],
             ].map(([icon, title, text]) => {
               const Icon = icon as typeof Activity;

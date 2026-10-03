@@ -5,7 +5,7 @@ import { Action } from "@/components/actions";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Book a Free Consultation",
-  "Request a private, free consultation call for initial guidance about varicose veins, fistula, fissure and piles concerns.",
+  "Request a private, free consultation call for initial guidance about varicose veins, fistula/fissure and piles concerns.",
   "/book-consultation",
 );
 export default function Booking() {

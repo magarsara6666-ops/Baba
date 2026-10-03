@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Check, ShieldCheck } from "lucide-react";
 import { PageHero, CTASection, SectionHeading } from "@/components/shared";
 import { Action } from "@/components/actions";
@@ -9,7 +9,11 @@ import { treatments, generalFAQs } from "@/lib/content";
 import { seo, JsonLd } from "@/lib/seo";
 import { clinic } from "@/lib/clinic";
 export function generateStaticParams() {
-  return treatments.map((t) => ({ slug: t.slug }));
+  return [
+    ...treatments.map((t) => ({ slug: t.slug })),
+    { slug: "fistula" },
+    { slug: "fissure" },
+  ];
 }
 export async function generateMetadata({
   params,
@@ -17,9 +21,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const t = treatments.find((t) => t.slug === slug);
+  const canonicalSlug = ["fistula", "fissure"].includes(slug)
+    ? "fistula-fissure"
+    : slug;
+  const t = treatments.find((t) => t.slug === canonicalSlug);
   return t
-    ? seo(t.name, t.description, `/services/${slug}`)
+    ? seo(t.name, t.description, `/services/${canonicalSlug}`)
     : { title: "Service not found" };
 }
 export default async function TreatmentPage({
@@ -28,12 +35,14 @@ export default async function TreatmentPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (["fistula", "fissure"].includes(slug))
+    redirect("/services/fistula-fissure");
   const t = treatments.find((t) => t.slug === slug);
   if (!t) notFound();
   const sections = [
     [
       "overview",
-      `What ${slug === "varicose-veins" ? "are varicose veins" : slug === "fistula" ? "is an anal fistula" : slug === "fissure" ? "is an anal fissure" : "are hemorrhoids / piles"}?`,
+      `What ${slug === "varicose-veins" ? "are varicose veins" : slug === "fistula-fissure" ? "are an anal fistula and anal fissure" : "are hemorrhoids / piles"}?`,
       t.definition,
     ],
     ["causes", "Possible Causes & Risk Factors", t.causes],
@@ -118,7 +127,7 @@ export default async function TreatmentPage({
               )}
             </div>
           ))}
-          {slug === "fissure" && (
+          {slug === "fistula-fissure" && (
             <section>
               <h2>General Prevention & Care Information</h2>
               <p>
@@ -161,9 +170,20 @@ export default async function TreatmentPage({
           </section>
           <p className="source-note">
             Educational reference:{" "}
-            <a href={t.source} target="_blank" rel="noopener noreferrer">
-              NHS: {t.short}
-            </a>
+            {(t.sources ?? [{ label: `NHS: ${t.short}`, url: t.source }]).map(
+              (source, index) => (
+                <span key={source.url}>
+                  {index > 0 && " · "}
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {source.label}
+                  </a>
+                </span>
+              ),
+            )}
             . Clinic-specific procedures and suitability must be confirmed with
             the medical team.
           </p>
@@ -176,11 +196,9 @@ export default async function TreatmentPage({
         title={
           slug === "varicose-veins"
             ? "Concerned About Varicose Veins?"
-            : slug === "fistula"
-              ? "Have Questions About Fistula Treatment?"
-              : slug === "fissure"
-                ? "Experiencing Pain or Discomfort?"
-                : "Have Questions About Piles / Hemorrhoids?"
+            : slug === "fistula-fissure"
+              ? "Questions About Fistula / Fissure Treatment?"
+              : "Have Questions About Piles / Hemorrhoids?"
         }
         text="Speak privately with our team and learn about the appropriate next steps."
       />

@@ -251,7 +251,7 @@ export function TreatmentComfort() {
 }
 export function CTASection({
   title = "Not Sure What to Do Next?",
-  text = "If you're experiencing symptoms related to varicose veins, fistula, fissure, or piles/hemorrhoids, speak with our team.",
+  text = "If you're experiencing symptoms related to varicose veins, fistula/fissure, or piles/hemorrhoids, speak with our team.",
 }: {
   title?: string;
   text?: string;

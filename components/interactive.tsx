@@ -56,7 +56,7 @@ export function AIChatButton() {
         "I cannot diagnose conditions or promise treatment outcomes. Individual diagnosis and treatment suitability require assessment by a qualified healthcare professional.";
     else if (/service|treat|laser/i.test(q))
       text =
-        "The clinic focuses on varicose veins, fistula, fissure and piles/hemorrhoids. Laser-based options are considered only where clinically appropriate. Explore our Services page or request a consultation.";
+        "The clinic focuses on varicose veins, fistula/fissure and piles/hemorrhoids. Laser-based options are considered only where clinically appropriate. Explore our Services page or request a consultation.";
     else if (/call|book|appointment|consult/i.test(q))
       text =
         "Start with a free consultation call by using the form below. This offers initial guidance; examinations, tests and treatment may involve separate charges. A request is not a confirmed appointment.";

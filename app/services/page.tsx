@@ -8,7 +8,7 @@ import {
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Specialized Treatment & Care",
-  "Explore consultation and treatment options for varicose veins, fistula, fissure and piles/hemorrhoids at Deepsara.",
+  "Explore consultation and treatment options for varicose veins, fistula/fissure and piles/hemorrhoids at Deepsara.",
   "/services",
 );
 export default function Services() {

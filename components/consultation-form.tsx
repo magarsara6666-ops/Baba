@@ -39,8 +39,7 @@ export function ConsultationForm() {
       .object({
         condition: z.enum([
           "Varicose Veins",
-          "Fistula",
-          "Fissure",
+          "Fistula / Fissure",
           "Piles / Hemorrhoids",
           "Other",
         ]),
@@ -65,8 +64,7 @@ export function ConsultationForm() {
                   type: "string",
                   enum: [
                     "Varicose Veins",
-                    "Fistula",
-                    "Fissure",
+                    "Fistula / Fissure",
                     "Piles / Hemorrhoids",
                     "Other",
                   ],
@@ -265,8 +263,7 @@ export function ConsultationForm() {
               </option>
               {[
                 "Varicose Veins",
-                "Fistula",
-                "Fissure",
+                "Fistula / Fissure",
                 "Piles / Hemorrhoids",
                 "Other",
               ].map((x) => (

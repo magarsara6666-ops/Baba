@@ -11,6 +11,7 @@ export type Treatment = {
   laser: string;
   urgent: string;
   source: string;
+  sources?: { label: string; url: string }[];
   color: string;
 };
 export const treatments: Treatment[] = [
@@ -41,56 +42,40 @@ export const treatments: Treatment[] = [
     color: "teal",
   },
   {
-    slug: "fistula",
-    name: "Fistula Treatment",
-    short: "Fistula",
+    slug: "fistula-fissure",
+    name: "Fistula / Fissure Treatment",
+    short: "Fistula / Fissure",
     description:
-      "Confidential evaluation and treatment guidance for symptoms associated with an anal fistula.",
+      "Private evaluation and treatment guidance for symptoms associated with anal fistulas and anal fissures.",
     definition:
-      "An anal fistula is a channel between the anal canal and nearby skin, often following an abscess. Persistent symptoms need evaluation.",
+      "An anal fistula is a channel between the anal canal and nearby skin, often following an abscess. An anal fissure is a small tear at the anal opening. They are different conditions and need individual assessment.",
     symptoms: [
-      "Recurring discharge",
-      "Pain or skin irritation",
-      "Swelling near the anus",
-    ],
-    causes:
-      "A previous anal abscess is a common cause. Inflammatory bowel conditions and other causes may also be considered.",
-    evaluation:
-      "Assessment can include a history, examination and specialist imaging such as MRI to understand the channel and its relationship to nearby muscles.",
-    approaches:
-      "Treatment may involve fistulotomy, a seton or a sphincter-preserving procedure. The anatomy and continence risks guide planning.",
-    laser:
-      "Laser closure may be discussed for selected fistulas. Suitability, uncertainty, recurrence and alternatives require an individual surgical discussion.",
-    urgent:
-      "Fever with worsening pain, redness or swelling needs prompt medical care because an abscess may be present.",
-    source: "https://www.nhs.uk/conditions/anal-fistula/",
-    color: "blue",
-  },
-  {
-    slug: "fissure",
-    name: "Fissure Treatment",
-    short: "Fissure",
-    description:
-      "Professional evaluation and treatment options for symptoms associated with anal fissures.",
-    definition:
-      "An anal fissure is a small tear at the anal opening. Pain or bleeding can have other causes, so an assessment is important.",
-    symptoms: [
-      "Sharp pain during bowel movements",
-      "Burning discomfort afterwards",
+      "Recurring discharge, swelling or irritation",
+      "Sharp pain during or after bowel movements",
       "Small amounts of bright red blood",
     ],
     causes:
-      "Hard stools, constipation or frequent diarrhoea can contribute. Other underlying conditions may need investigation.",
+      "A fistula commonly develops after an anal abscess. A fissure can be linked to hard stools, constipation or frequent diarrhoea. Other causes may need investigation.",
     evaluation:
-      "A clinician asks about symptoms and examines the area with your consent. Further assessment may be needed if the diagnosis is uncertain.",
+      "A clinician reviews your symptoms and examines the area with your consent. Imaging such as MRI may be advised for a fistula, while further assessment depends on the findings.",
     approaches:
-      "Care may include measures to soften stools, prescribed topical treatment, injections or surgery for selected persistent fissures.",
+      "Fistula treatment may include fistulotomy, a seton or a sphincter-preserving procedure. Fissure care may include stool-softening measures, prescribed topical treatment, injections or surgery for selected persistent cases.",
     laser:
-      "Laser is not a routine first-line fissure treatment. Ask your clinician about evidence, alternatives and whether any proposed procedure is appropriate.",
+      "Laser closure may be discussed for selected fistulas. Laser is not a routine first-line fissure treatment. Your clinician should explain suitability, evidence, risks and alternatives.",
     urgent:
-      "Arrange assessment for worsening or persistent symptoms. Heavy or ongoing bleeding and severe pain require urgent medical care.",
-    source: "https://www.nhs.uk/conditions/anal-fissure/",
-    color: "sand",
+      "Fever with worsening pain, redness or swelling may indicate an abscess and needs prompt care. Heavy or ongoing bleeding and severe pain also require urgent medical assessment.",
+    source: "https://www.nhs.uk/conditions/anal-fistula/",
+    sources: [
+      {
+        label: "NHS: Anal fistula",
+        url: "https://www.nhs.uk/conditions/anal-fistula/",
+      },
+      {
+        label: "NHS: Anal fissure",
+        url: "https://www.nhs.uk/conditions/anal-fissure/",
+      },
+    ],
+    color: "blue",
   },
   {
     slug: "piles-hemorrhoids",
@@ -122,7 +107,7 @@ export const treatments: Treatment[] = [
 export const benefits = [
   [
     "Specialized Care",
-    "Focused care for varicose veins, fistula, fissure, and piles/hemorrhoids.",
+    "Focused care for varicose veins, fistula/fissure, and piles/hemorrhoids.",
   ],
   [
     "Modern Treatment Approach",
@@ -230,7 +215,7 @@ export const articles: Article[] = [
     excerpt:
       "A simple introduction to anal fissures, common symptoms and available treatment options.",
     date: "2026-10-03",
-    treatment: "fissure",
+    treatment: "fistula-fissure",
     sections: [
       {
         heading: "What is an anal fissure?",
@@ -252,7 +237,7 @@ export const articles: Article[] = [
     category: "Fistula",
     excerpt: "What to discuss when seeking guidance for a possible fistula.",
     date: "2026-10-03",
-    treatment: "fistula",
+    treatment: "fistula-fissure",
     sections: [
       {
         heading: "Explain your concerns",

@@ -29,7 +29,7 @@ export default function About() {
           />
           <p>
             {clinic.name} focuses on consultation and modern treatment options
-            for varicose veins, fistula, fissure, and piles/hemorrhoids.
+            for varicose veins, fistula/fissure, and piles/hemorrhoids.
           </p>
           <p>
             We provide initial counselling to help people understand their

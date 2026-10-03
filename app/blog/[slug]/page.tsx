@@ -62,9 +62,20 @@ export default async function ArticlePage({
             </p>
             <p>
               Reference:{" "}
-              <a href={t.source} target="_blank" rel="noopener noreferrer">
-                NHS patient information
-              </a>
+              {(t.sources ?? [
+                { label: "NHS patient information", url: t.source },
+              ]).map((source, index) => (
+                <span key={source.url}>
+                  {index > 0 && " · "}
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {source.label}
+                  </a>
+                </span>
+              ))}
               .
             </p>
           </section>
