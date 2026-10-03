@@ -9,7 +9,6 @@ import {
   HandHeart,
   MessagesSquare,
   Plus,
-  UserRound,
   Check,
   LockKeyhole,
 } from "lucide-react";
@@ -314,17 +313,21 @@ export function BlogGrid({ limit }: { limit?: number }) {
 export function DoctorCard() {
   return (
     <article className="doctor-card">
-      <div className="doctor-placeholder">
-        <UserRound size={70} />
-        <span>[DOCTOR PHOTO]</span>
+      <div className="doctor-photo">
+        <Image
+          src="/images/dr-deepak-thapa-magar-clinic.png"
+          alt="Dr Deepak Thapa Magar in a modern clinic"
+          fill
+          sizes="(max-width: 640px) 100vw, 280px"
+          style={{ objectFit: "cover", objectPosition: "center top" }}
+        />
       </div>
       <div>
         <span className="eyebrow">MEET OUR MEDICAL TEAM</span>
         <h3>{clinic.doctorName}</h3>
-        <p>{clinic.specialization}</p>
         <p>{clinic.qualifications}</p>
-        <p>{clinic.experience}</p>
-        <small>Verified medical team details will be added here.</small>
+        <p>{clinic.specialization}</p>
+        {clinic.experience && <p>{clinic.experience}</p>}
       </div>
     </article>
   );
@@ -333,13 +336,12 @@ export function ConsultationPhoto({ className = "" }: { className?: string }) {
   return (
     <div className={`consultation-photo ${className}`}>
       <Image
-        src="/images/PHOTO-2026-10-03-16-50-39-removebg-preview.png"
-        alt="Clinic doctor wearing a white coat and blue tie"
+        src="/images/dr-deepak-thapa-magar-clinic.png"
+        alt="Dr Deepak Thapa Magar in a modern clinic"
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
         priority
-        className="doctor-portrait-image"
-        style={{ objectFit: "contain", objectPosition: "center bottom" }}
+        style={{ objectFit: "cover", objectPosition: "center" }}
       />
     </div>
   );

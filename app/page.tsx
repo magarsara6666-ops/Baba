@@ -64,13 +64,14 @@ export default function Home() {
           </div>
           <div className="hero-image-wrap">
             <ConsultationPhoto />
-            <div className="hero-image-label">
+            <div className="hero-image-label doctor-identity">
               <span className="label-icon">
-                <ShieldCheck />
+                <Stethoscope />
               </span>
               <div>
-                <strong>Your comfort comes first</strong>
-                <span>Private, respectful, patient-focused care</span>
+                <strong>Dr Deepak Thapa Magar</strong>
+                <span>MBBS, MS, MCh</span>
+                <span>General, Thoracic &amp; Vascular Surgeon</span>
               </div>
             </div>
             <span className="hero-image-corner" aria-hidden="true">

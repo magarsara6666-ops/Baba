@@ -8,10 +8,10 @@ export const clinic = {
   websiteUrl: process.env.NEXT_PUBLIC_SITE_URL || "",
   googleMapsUrl: process.env.NEXT_PUBLIC_MAPS_URL || "",
   mapsEmbedUrl: process.env.NEXT_PUBLIC_MAPS_EMBED_URL || "",
-  doctorName: "[DOCTOR NAME]",
-  specialization: "[SPECIALIZATION]",
-  qualifications: "[QUALIFICATIONS]",
-  experience: "[EXPERIENCE]",
+  doctorName: "Dr Deepak Thapa Magar",
+  specialization: "General, Thoracic & Vascular Surgeon",
+  qualifications: "MBBS, MS, MCh",
+  experience: "",
   socialMedia: [] as { label: string; url: string }[],
 };
 export const disclaimer =

@@ -414,10 +414,6 @@ svg {
   object-fit: cover;
   object-position: center;
 }
-.consultation-photo img.doctor-portrait-image {
-  object-fit: contain;
-  object-position: center bottom;
-}
 .hero-image-wrap .consultation-photo {
   border-radius: 110px 8px 8px 8px;
   height: 510px;
@@ -456,6 +452,18 @@ svg {
   font-size: 11px;
   color: var(--muted);
   margin-top: 2px;
+}
+.doctor-identity {
+  min-width: 320px;
+}
+.doctor-identity strong {
+  font-size: 17px;
+}
+.doctor-identity span:not(.label-icon):last-child {
+  max-width: 260px;
+  color: #31565b;
+  font-weight: 600;
+  line-height: 1.45;
 }
 .label-icon {
   display: grid;
@@ -1094,6 +1102,11 @@ svg {
   max-width: 850px;
   border: 1px solid var(--line);
   border-radius: 10px;
+  overflow: hidden;
+}
+.doctor-photo {
+  position: relative;
+  min-height: 360px;
   overflow: hidden;
 }
 .doctor-placeholder {
@@ -1820,6 +1833,10 @@ svg {
   .hero-image-label {
     left: 15px;
   }
+  .doctor-identity {
+    right: 15px;
+    min-width: 0;
+  }
   .hero-image-corner {
     right: 15px;
     top: -25px;
@@ -2075,6 +2092,15 @@ svg {
     padding: 14px;
     left: 10px;
     bottom: 20px;
+  }
+  .doctor-identity {
+    align-items: flex-start;
+  }
+  .doctor-identity strong {
+    font-size: 15px;
+  }
+  .doctor-identity span:not(.label-icon):last-child {
+    font-size: 10px;
   }
   .label-icon {
     height: 35px;
