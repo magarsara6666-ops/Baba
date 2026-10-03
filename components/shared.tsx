@@ -143,7 +143,9 @@ export function TreatmentComfort() {
   return (
     <section className="comfort-section" aria-labelledby="comfort-heading">
       <div className="comfort-intro">
-        <span className="eyebrow">WHEN MINIMALLY INVASIVE CARE IS SUITABLE</span>
+        <span className="eyebrow">
+          WHEN MINIMALLY INVASIVE TREATMENT IS SUITABLE
+        </span>
         <h2 id="comfort-heading">Treatment Designed Around Your Comfort</h2>
         <p>Some modern procedures may offer:</p>
       </div>
