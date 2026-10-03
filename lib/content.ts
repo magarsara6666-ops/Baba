@@ -1,31 +1,298 @@
-export type Treatment = {slug:string; name:string; short:string; description:string; definition:string; symptoms:string[]; causes:string; evaluation:string; approaches:string; laser:string; urgent:string; source:string; color:string;};
+export type Treatment = {
+  slug: string;
+  name: string;
+  short: string;
+  description: string;
+  definition: string;
+  symptoms: string[];
+  causes: string;
+  evaluation: string;
+  approaches: string;
+  laser: string;
+  urgent: string;
+  source: string;
+  color: string;
+};
 export const treatments: Treatment[] = [
- {slug:'varicose-veins',name:'Varicose Veins Treatment',short:'Varicose Veins',description:'Professional evaluation and treatment options for visible or enlarged veins, heaviness, swelling, aching, or related concerns.',definition:'Varicose veins are enlarged, twisted veins, commonly in the legs. They can cause discomfort, although not every visible vein needs treatment.',symptoms:['Visible, enlarged veins','Aching or heavy legs','Ankle swelling or itchy skin'],causes:'Changes in vein valves can affect blood flow. Age, family history, pregnancy and prolonged standing can increase the likelihood.',evaluation:'Your clinician reviews symptoms and examines your legs. A duplex ultrasound may help assess blood flow and plan care.',approaches:'Options may include symptom management, clinically prescribed compression, thermal ablation, foam sclerotherapy or surgery.',laser:'Endovenous laser treatment uses heat to close a selected vein. An assessment determines whether this or another approach is suitable.',urgent:'Seek urgent care for bleeding veins. Sudden leg swelling or pain also needs prompt medical assessment.',source:'https://www.nhs.uk/conditions/varicose-veins/',color:'teal'},
- {slug:'fistula',name:'Fistula Treatment',short:'Fistula',description:'Confidential evaluation and treatment guidance for symptoms associated with an anal fistula.',definition:'An anal fistula is a channel between the anal canal and nearby skin, often following an abscess. Persistent symptoms need evaluation.',symptoms:['Recurring discharge','Pain or skin irritation','Swelling near the anus'],causes:'A previous anal abscess is a common cause. Inflammatory bowel conditions and other causes may also be considered.',evaluation:'Assessment can include a history, examination and specialist imaging such as MRI to understand the channel and its relationship to nearby muscles.',approaches:'Treatment may involve fistulotomy, a seton or a sphincter-preserving procedure. The anatomy and continence risks guide planning.',laser:'Laser closure may be discussed for selected fistulas. Suitability, uncertainty, recurrence and alternatives require an individual surgical discussion.',urgent:'Fever with worsening pain, redness or swelling needs prompt medical care because an abscess may be present.',source:'https://www.nhs.uk/conditions/anal-fistula/',color:'blue'},
- {slug:'fissure',name:'Fissure Treatment',short:'Fissure',description:'Professional evaluation and treatment options for symptoms associated with anal fissures.',definition:'An anal fissure is a small tear at the anal opening. Pain or bleeding can have other causes, so an assessment is important.',symptoms:['Sharp pain during bowel movements','Burning discomfort afterwards','Small amounts of bright red blood'],causes:'Hard stools, constipation or frequent diarrhoea can contribute. Other underlying conditions may need investigation.',evaluation:'A clinician asks about symptoms and examines the area with your consent. Further assessment may be needed if the diagnosis is uncertain.',approaches:'Care may include measures to soften stools, prescribed topical treatment, injections or surgery for selected persistent fissures.',laser:'Laser is not a routine first-line fissure treatment. Ask your clinician about evidence, alternatives and whether any proposed procedure is appropriate.',urgent:'Arrange assessment for worsening or persistent symptoms. Heavy or ongoing bleeding and severe pain require urgent medical care.',source:'https://www.nhs.uk/conditions/anal-fissure/',color:'sand'},
- {slug:'piles-hemorrhoids',name:'Piles / Hemorrhoids Treatment',short:'Piles / Hemorrhoids',description:'Private consultation and treatment options for hemorrhoid-related discomfort, swelling, itching, bleeding, or related symptoms.',definition:'Hemorrhoids are enlarged vascular cushions in or around the anus. Internal and external hemorrhoids affect different areas.',symptoms:['Itching or discomfort','Lumps or swelling','Bright red bleeding after bowel movements'],causes:'Straining, constipation, pregnancy and increasing age can contribute. Bleeding should not automatically be attributed to hemorrhoids.',evaluation:'Your clinician reviews symptoms and may examine the area. Additional investigations depend on your history and findings.',approaches:'Options include bowel habit changes, medicines, banding, other outpatient procedures or surgery depending on severity.',laser:'Laser-based procedures may be discussed in selected cases. Compare their evidence, benefits, risks and alternatives with your clinician.',urgent:'Seek emergency care for heavy or continuous bleeding or severe pain. Fever or discharge needs prompt assessment.',source:'https://www.nhs.uk/conditions/piles-haemorrhoids/',color:'rose'},
+  {
+    slug: "varicose-veins",
+    name: "Varicose Veins Treatment",
+    short: "Varicose Veins",
+    description:
+      "Professional evaluation and treatment options for visible or enlarged veins, heaviness, swelling, aching, or related concerns.",
+    definition:
+      "Varicose veins are enlarged, twisted veins, commonly in the legs. They can cause discomfort, although not every visible vein needs treatment.",
+    symptoms: [
+      "Visible, enlarged veins",
+      "Aching or heavy legs",
+      "Ankle swelling or itchy skin",
+    ],
+    causes:
+      "Changes in vein valves can affect blood flow. Age, family history, pregnancy and prolonged standing can increase the likelihood.",
+    evaluation:
+      "Your clinician reviews symptoms and examines your legs. A duplex ultrasound may help assess blood flow and plan care.",
+    approaches:
+      "Options may include symptom management, clinically prescribed compression, thermal ablation, foam sclerotherapy or surgery.",
+    laser:
+      "Endovenous laser treatment uses heat to close a selected vein. An assessment determines whether this or another approach is suitable.",
+    urgent:
+      "Seek urgent care for bleeding veins. Sudden leg swelling or pain also needs prompt medical assessment.",
+    source: "https://www.nhs.uk/conditions/varicose-veins/",
+    color: "teal",
+  },
+  {
+    slug: "fistula",
+    name: "Fistula Treatment",
+    short: "Fistula",
+    description:
+      "Confidential evaluation and treatment guidance for symptoms associated with an anal fistula.",
+    definition:
+      "An anal fistula is a channel between the anal canal and nearby skin, often following an abscess. Persistent symptoms need evaluation.",
+    symptoms: [
+      "Recurring discharge",
+      "Pain or skin irritation",
+      "Swelling near the anus",
+    ],
+    causes:
+      "A previous anal abscess is a common cause. Inflammatory bowel conditions and other causes may also be considered.",
+    evaluation:
+      "Assessment can include a history, examination and specialist imaging such as MRI to understand the channel and its relationship to nearby muscles.",
+    approaches:
+      "Treatment may involve fistulotomy, a seton or a sphincter-preserving procedure. The anatomy and continence risks guide planning.",
+    laser:
+      "Laser closure may be discussed for selected fistulas. Suitability, uncertainty, recurrence and alternatives require an individual surgical discussion.",
+    urgent:
+      "Fever with worsening pain, redness or swelling needs prompt medical care because an abscess may be present.",
+    source: "https://www.nhs.uk/conditions/anal-fistula/",
+    color: "blue",
+  },
+  {
+    slug: "fissure",
+    name: "Fissure Treatment",
+    short: "Fissure",
+    description:
+      "Professional evaluation and treatment options for symptoms associated with anal fissures.",
+    definition:
+      "An anal fissure is a small tear at the anal opening. Pain or bleeding can have other causes, so an assessment is important.",
+    symptoms: [
+      "Sharp pain during bowel movements",
+      "Burning discomfort afterwards",
+      "Small amounts of bright red blood",
+    ],
+    causes:
+      "Hard stools, constipation or frequent diarrhoea can contribute. Other underlying conditions may need investigation.",
+    evaluation:
+      "A clinician asks about symptoms and examines the area with your consent. Further assessment may be needed if the diagnosis is uncertain.",
+    approaches:
+      "Care may include measures to soften stools, prescribed topical treatment, injections or surgery for selected persistent fissures.",
+    laser:
+      "Laser is not a routine first-line fissure treatment. Ask your clinician about evidence, alternatives and whether any proposed procedure is appropriate.",
+    urgent:
+      "Arrange assessment for worsening or persistent symptoms. Heavy or ongoing bleeding and severe pain require urgent medical care.",
+    source: "https://www.nhs.uk/conditions/anal-fissure/",
+    color: "sand",
+  },
+  {
+    slug: "piles-hemorrhoids",
+    name: "Piles / Hemorrhoids Treatment",
+    short: "Piles / Hemorrhoids",
+    description:
+      "Private consultation and treatment options for hemorrhoid-related discomfort, swelling, itching, bleeding, or related symptoms.",
+    definition:
+      "Hemorrhoids are enlarged vascular cushions in or around the anus. Internal and external hemorrhoids affect different areas.",
+    symptoms: [
+      "Itching or discomfort",
+      "Lumps or swelling",
+      "Bright red bleeding after bowel movements",
+    ],
+    causes:
+      "Straining, constipation, pregnancy and increasing age can contribute. Bleeding should not automatically be attributed to hemorrhoids.",
+    evaluation:
+      "Your clinician reviews symptoms and may examine the area. Additional investigations depend on your history and findings.",
+    approaches:
+      "Options include bowel habit changes, medicines, banding, other outpatient procedures or surgery depending on severity.",
+    laser:
+      "Laser-based procedures may be discussed in selected cases. Compare their evidence, benefits, risks and alternatives with your clinician.",
+    urgent:
+      "Seek emergency care for heavy or continuous bleeding or severe pain. Fever or discharge needs prompt assessment.",
+    source: "https://www.nhs.uk/conditions/piles-haemorrhoids/",
+    color: "rose",
+  },
 ];
 export const benefits = [
- ['Specialized Care','Focused care for varicose veins, fistula, fissure, and piles/hemorrhoids.'],
- ['Modern Treatment Approach','Modern medical techniques where clinically appropriate.'],
- ['Confidential Consultation','A private environment for discussing sensitive concerns.'],
- ['Patient-Focused Care','Clear communication guided by your individual needs.'],
- ['Professional Guidance','Support to understand the available options and next steps.'],
- ['Follow-Up Support','Appropriate guidance before and after treatment.'],
+  [
+    "Specialized Care",
+    "Focused care for varicose veins, fistula, fissure, and piles/hemorrhoids.",
+  ],
+  [
+    "Modern Treatment Approach",
+    "Modern medical techniques where clinically appropriate.",
+  ],
+  [
+    "Confidential Consultation",
+    "A private environment for discussing sensitive concerns.",
+  ],
+  [
+    "Patient-Focused Care",
+    "Clear communication guided by your individual needs.",
+  ],
+  [
+    "Professional Guidance",
+    "Support to understand the available options and next steps.",
+  ],
+  ["Follow-Up Support", "Appropriate guidance before and after treatment."],
 ];
-export const journey = [ ['Contact Us','Call, WhatsApp, or submit our consultation form.'], ['Free Consultation','Speak privately with our team and explain your concerns.'], ['Medical Evaluation','A qualified healthcare professional can evaluate your condition and discuss appropriate options.'], ['Treatment & Follow-Up','If treatment is recommended, discuss preparation, risks, recovery, and follow-up.'] ];
+export const journey = [
+  ["Contact Us", "Call, WhatsApp, or submit our consultation form."],
+  [
+    "Free Consultation",
+    "Speak privately with our team and explain your concerns.",
+  ],
+  [
+    "Medical Evaluation",
+    "A qualified healthcare professional can evaluate your condition and discuss appropriate options.",
+  ],
+  [
+    "Treatment & Follow-Up",
+    "If treatment is recommended, discuss preparation, risks, recovery, and follow-up.",
+  ],
+];
 export const generalFAQs = [
- ['What does the free consultation include?','The free consultation call offers initial counselling and guidance about next steps. It does not replace an in-person medical assessment. Ask the team about any charges for examinations, tests or treatment.'],
- ['Do I need to choose a treatment before contacting you?','No. You can discuss your concerns first. A qualified healthcare professional can explain the options after assessing your circumstances.'],
- ['Is laser treatment suitable for everyone?','No. Suitability depends on the condition, examination findings and individual circumstances. Other approaches may be more appropriate.'],
- ['Will my enquiry be private?','We aim to handle enquiries respectfully and confidentially. Share only the information needed for a callback; avoid sending medical records through this form.'],
+  [
+    "What does the free consultation include?",
+    "The free consultation call offers initial counselling and guidance about next steps. It does not replace an in-person medical assessment. Ask the team about any charges for examinations, tests or treatment.",
+  ],
+  [
+    "Do I need to choose a treatment before contacting you?",
+    "No. You can discuss your concerns first. A qualified healthcare professional can explain the options after assessing your circumstances.",
+  ],
+  [
+    "Is laser treatment suitable for everyone?",
+    "No. Suitability depends on the condition, examination findings and individual circumstances. Other approaches may be more appropriate.",
+  ],
+  [
+    "Will my enquiry be private?",
+    "We aim to handle enquiries respectfully and confidentially. Share only the information needed for a callback; avoid sending medical records through this form.",
+  ],
 ];
-export type Article = {slug:string; title:string; category:string; excerpt:string; date:string; sections:{heading:string; text:string}[]; treatment?:string};
+export type Article = {
+  slug: string;
+  title: string;
+  category: string;
+  excerpt: string;
+  date: string;
+  sections: { heading: string; text: string }[];
+  treatment?: string;
+};
 export const articles: Article[] = [
- {slug:'understanding-varicose-veins',title:'Understanding Varicose Veins',category:'Varicose Veins',excerpt:'A clear introduction to vein concerns and the value of a professional assessment.',date:'2026-10-03',treatment:'varicose-veins',sections:[{heading:'Start with an assessment',text:'Visible veins alone do not tell you which treatment you need. A consultation is an opportunity to explain how your concerns affect your daily life.'},{heading:'Make the conversation useful',text:'Note when your discomfort occurs, how long it has been present, and what questions you want to ask. Your clinician can explain whether further evaluation is appropriate.'}]},
- {slug:'common-symptoms-of-hemorrhoids',title:'Common Symptoms of Hemorrhoids',category:'Piles / Hemorrhoids',excerpt:'Why talking about discomfort and bleeding is an important part of seeking care.',date:'2026-10-03',treatment:'piles-hemorrhoids',sections:[{heading:'You can talk openly',text:'Bowel concerns can feel personal. You can ask for privacy, explain what is troubling you and ask how an examination would be performed.'},{heading:'Avoid self-diagnosis',text:'Symptoms can overlap across conditions. Use your consultation to ask which assessments are needed rather than choosing a procedure based on symptoms alone.'}]},
- {slug:'what-is-an-anal-fissure',title:'What Is an Anal Fissure?',category:'Fissure',excerpt:'Understand the terminology and prepare for a conversation with a clinician.',date:'2026-10-03',treatment:'fissure',sections:[{heading:'Understand the term',text:'Understanding the name of a condition can help you ask questions, but reading about it cannot confirm that it explains your symptoms.'},{heading:'Discuss a care plan',text:'Ask how the diagnosis is established, which options might apply and when you should arrange follow-up. Mention ongoing symptoms rather than assuming they will settle.'}]},
- {slug:'understanding-anal-fistula',title:'Understanding Anal Fistula',category:'Fistula',excerpt:'What to discuss when seeking guidance for a possible fistula.',date:'2026-10-03',treatment:'fistula',sections:[{heading:'Explain your concerns',text:'Tell the clinician about the duration of symptoms and any previous assessments or procedures. You can ask for an explanation of each examination before giving consent.'},{heading:'Ask about the options',text:'Treatment planning is individual. Ask about the proposed procedure, its alternatives, possible risks and how the team will support follow-up.'}]},
- {slug:'questions-before-a-medical-procedure',title:'Questions to Ask Before a Medical Procedure',category:'Laser Treatment',excerpt:'A practical checklist for understanding suitability, risks and alternatives.',date:'2026-10-03',sections:[{heading:'Understand the recommendation',text:'Ask: Why is this procedure recommended for me? What are the alternatives, including waiting? What evidence supports this approach?'},{heading:'Plan for afterwards',text:'Ask about anaesthesia, possible complications, costs, recovery guidance, follow-up appointments and who to contact if you have concerns. Request information in a form you can review.'}]},
- {slug:'your-first-consultation',title:'What to Expect During Your First Consultation',category:'Patient Education',excerpt:'Simple ways to prepare for a private, productive conversation.',date:'2026-10-03',sections:[{heading:'Prepare your questions',text:'Make a short list of your questions. For a clinical appointment, bring a medication list and relevant reports if the clinic requests them. Avoid uploading records to a marketing form.'},{heading:'Take your time',text:'Ask for unfamiliar terms to be explained. A consultation helps you understand next steps; it does not require you to commit to a procedure. You can ask about costs before proceeding.'}]},
+  {
+    slug: "understanding-varicose-veins",
+    title: "Understanding Varicose Veins",
+    category: "Varicose Veins",
+    excerpt:
+      "A clear introduction to vein concerns and the value of a professional assessment.",
+    date: "2026-10-03",
+    treatment: "varicose-veins",
+    sections: [
+      {
+        heading: "Start with an assessment",
+        text: "Visible veins alone do not tell you which treatment you need. A consultation is an opportunity to explain how your concerns affect your daily life.",
+      },
+      {
+        heading: "Make the conversation useful",
+        text: "Note when your discomfort occurs, how long it has been present, and what questions you want to ask. Your clinician can explain whether further evaluation is appropriate.",
+      },
+    ],
+  },
+  {
+    slug: "common-symptoms-of-hemorrhoids",
+    title: "Common Symptoms of Hemorrhoids",
+    category: "Piles / Hemorrhoids",
+    excerpt:
+      "Why talking about discomfort and bleeding is an important part of seeking care.",
+    date: "2026-10-03",
+    treatment: "piles-hemorrhoids",
+    sections: [
+      {
+        heading: "You can talk openly",
+        text: "Bowel concerns can feel personal. You can ask for privacy, explain what is troubling you and ask how an examination would be performed.",
+      },
+      {
+        heading: "Avoid self-diagnosis",
+        text: "Symptoms can overlap across conditions. Use your consultation to ask which assessments are needed rather than choosing a procedure based on symptoms alone.",
+      },
+    ],
+  },
+  {
+    slug: "what-is-an-anal-fissure",
+    title: "What Is an Anal Fissure?",
+    category: "Fissure",
+    excerpt:
+      "Understand the terminology and prepare for a conversation with a clinician.",
+    date: "2026-10-03",
+    treatment: "fissure",
+    sections: [
+      {
+        heading: "Understand the term",
+        text: "Understanding the name of a condition can help you ask questions, but reading about it cannot confirm that it explains your symptoms.",
+      },
+      {
+        heading: "Discuss a care plan",
+        text: "Ask how the diagnosis is established, which options might apply and when you should arrange follow-up. Mention ongoing symptoms rather than assuming they will settle.",
+      },
+    ],
+  },
+  {
+    slug: "understanding-anal-fistula",
+    title: "Understanding Anal Fistula",
+    category: "Fistula",
+    excerpt: "What to discuss when seeking guidance for a possible fistula.",
+    date: "2026-10-03",
+    treatment: "fistula",
+    sections: [
+      {
+        heading: "Explain your concerns",
+        text: "Tell the clinician about the duration of symptoms and any previous assessments or procedures. You can ask for an explanation of each examination before giving consent.",
+      },
+      {
+        heading: "Ask about the options",
+        text: "Treatment planning is individual. Ask about the proposed procedure, its alternatives, possible risks and how the team will support follow-up.",
+      },
+    ],
+  },
+  {
+    slug: "questions-before-a-medical-procedure",
+    title: "Questions to Ask Before a Medical Procedure",
+    category: "Laser Treatment",
+    excerpt:
+      "A practical checklist for understanding suitability, risks and alternatives.",
+    date: "2026-10-03",
+    sections: [
+      {
+        heading: "Understand the recommendation",
+        text: "Ask: Why is this procedure recommended for me? What are the alternatives, including waiting? What evidence supports this approach?",
+      },
+      {
+        heading: "Plan for afterwards",
+        text: "Ask about anaesthesia, possible complications, costs, recovery guidance, follow-up appointments and who to contact if you have concerns. Request information in a form you can review.",
+      },
+    ],
+  },
+  {
+    slug: "your-first-consultation",
+    title: "What to Expect During Your First Consultation",
+    category: "Patient Education",
+    excerpt: "Simple ways to prepare for a private, productive conversation.",
+    date: "2026-10-03",
+    sections: [
+      {
+        heading: "Prepare your questions",
+        text: "Make a short list of your questions. For a clinical appointment, bring a medication list and relevant reports if the clinic requests them. Avoid uploading records to a marketing form.",
+      },
+      {
+        heading: "Take your time",
+        text: "Ask for unfamiliar terms to be explained. A consultation helps you understand next steps; it does not require you to commit to a procedure. You can ask about costs before proceeding.",
+      },
+    ],
+  },
 ];

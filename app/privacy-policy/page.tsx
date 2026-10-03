@@ -1,5 +1,107 @@
-import {PageHero} from '@/components/shared';
-import {clinic} from '@/lib/clinic';
-import {seo} from '@/lib/seo';
-export const metadata=seo('Privacy Policy','Learn how consultation requests, optional analytics and contact preferences are handled on the Deepsara website.','/privacy-policy');
-export default function Privacy(){return <><PageHero title="Privacy Policy" text="How information submitted through this website is handled."/><article className="section container article"><p>Last updated: 03 October 2026. This policy describes the website’s intended data handling. The clinic must verify its contact details, service providers, retention periods and applicable legal requirements before public launch.</p><section><h2>Who Handles Your Information</h2><p>{clinic.name} is responsible for consultation enquiries. Contact: {clinic.email||'[ADD PRIVACY CONTACT EMAIL]'}; address: {clinic.address||'[ADD CLINIC ADDRESS]'}.</p></section><section><h2>Information You Choose to Provide</h2><p>The consultation form requests your name, phone number, optional email, broad concern, contact preference, preferred time and optional message. Do not submit medical records, identity documents or detailed medical history.</p></section><section><h2>Why We Use It</h2><p>With your consent, enquiry information is used to contact you about your consultation request and next steps. This form does not confirm an appointment and does not subscribe you to marketing.</p></section><section><h2>Delivery and Service Providers</h2><p>When configured, the form sends your request over an encrypted connection to the clinic’s designated delivery service. Delivery is acknowledged only after that service accepts it. If delivery is unavailable, the form displays an error. The clinic must document its approved CRM or email provider before launch.</p></section><section><h2>Retention and Your Choices</h2><p>The clinic must set and document a retention period for enquiries before activating delivery. You can contact the clinic to request access, correction, deletion or withdrawal of contact consent, subject to applicable requirements.</p></section><section><h2>Optional Analytics</h2><p>Optional analytics are enabled only when you accept them and verified tracking IDs are configured. Events measure actions such as consultation clicks, call clicks and form submissions. Names, phone numbers, emails and messages are never included in analytics events. A preference is stored in your browser. You can reopen cookie preferences at the bottom of the page.</p></section><section><h2>Third-Party Services</h2><p>WhatsApp, maps and external educational references have their own privacy policies. Clicking those links can take you outside this website. A configured embedded Google Map may send connection information to Google.</p></section><section><h2>Security</h2><p>The form validates requests and keeps delivery credentials on the server. Access controls and retention arrangements for the destination service remain the clinic’s responsibility. Avoid sharing sensitive information through general enquiry channels.</p></section><section><h2>Children and Urgent Care</h2><p>A parent or guardian should make enquiries for children. This website is not an emergency service. Seek prompt medical care or local emergency services for urgent or severe symptoms.</p></section></article></>}
+import { PageHero } from "@/components/shared";
+import { clinic } from "@/lib/clinic";
+import { seo } from "@/lib/seo";
+export const metadata = seo(
+  "Privacy Policy",
+  "Learn how consultation requests, optional analytics and contact preferences are handled on the Deepsara website.",
+  "/privacy-policy",
+);
+export default function Privacy() {
+  return (
+    <>
+      <PageHero
+        title="Privacy Policy"
+        text="How information submitted through this website is handled."
+      />
+      <article className="section container article">
+        <p>
+          Last updated: 03 October 2026. This policy describes the website’s
+          intended data handling. The clinic must verify its contact details,
+          service providers, retention periods and applicable legal requirements
+          before public launch.
+        </p>
+        <section>
+          <h2>Who Handles Your Information</h2>
+          <p>
+            {clinic.name} is responsible for consultation enquiries. Contact:{" "}
+            {clinic.email || "[ADD PRIVACY CONTACT EMAIL]"}; address:{" "}
+            {clinic.address || "[ADD CLINIC ADDRESS]"}.
+          </p>
+        </section>
+        <section>
+          <h2>Information You Choose to Provide</h2>
+          <p>
+            The consultation form requests your name, phone number, optional
+            email, broad concern, contact preference, preferred time and
+            optional message. Do not submit medical records, identity documents
+            or detailed medical history.
+          </p>
+        </section>
+        <section>
+          <h2>Why We Use It</h2>
+          <p>
+            With your consent, enquiry information is used to contact you about
+            your consultation request and next steps. This form does not confirm
+            an appointment and does not subscribe you to marketing.
+          </p>
+        </section>
+        <section>
+          <h2>Delivery and Service Providers</h2>
+          <p>
+            When configured, the form sends your request over an encrypted
+            connection to the clinic’s designated delivery service. Delivery is
+            acknowledged only after that service accepts it. If delivery is
+            unavailable, the form displays an error. The clinic must document
+            its approved CRM or email provider before launch.
+          </p>
+        </section>
+        <section>
+          <h2>Retention and Your Choices</h2>
+          <p>
+            The clinic must set and document a retention period for enquiries
+            before activating delivery. You can contact the clinic to request
+            access, correction, deletion or withdrawal of contact consent,
+            subject to applicable requirements.
+          </p>
+        </section>
+        <section>
+          <h2>Optional Analytics</h2>
+          <p>
+            Optional analytics are enabled only when you accept them and
+            verified tracking IDs are configured. Events measure actions such as
+            consultation clicks, call clicks and form submissions. Names, phone
+            numbers, emails and messages are never included in analytics events.
+            A preference is stored in your browser. You can reopen cookie
+            preferences at the bottom of the page.
+          </p>
+        </section>
+        <section>
+          <h2>Third-Party Services</h2>
+          <p>
+            WhatsApp, maps and external educational references have their own
+            privacy policies. Clicking those links can take you outside this
+            website. A configured embedded Google Map may send connection
+            information to Google.
+          </p>
+        </section>
+        <section>
+          <h2>Security</h2>
+          <p>
+            The form validates requests and keeps delivery credentials on the
+            server. Access controls and retention arrangements for the
+            destination service remain the clinic’s responsibility. Avoid
+            sharing sensitive information through general enquiry channels.
+          </p>
+        </section>
+        <section>
+          <h2>Children and Urgent Care</h2>
+          <p>
+            A parent or guardian should make enquiries for children. This
+            website is not an emergency service. Seek prompt medical care or
+            local emergency services for urgent or severe symptoms.
+          </p>
+        </section>
+      </article>
+    </>
+  );
+}
