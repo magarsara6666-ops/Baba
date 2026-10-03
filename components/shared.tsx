@@ -120,6 +120,53 @@ export function ServiceGrid() {
     </div>
   );
 }
+
+export function TreatmentComfort() {
+  const items = [
+    [
+      HandHeart,
+      "Less Discomfort",
+      "Some procedures may involve less discomfort than traditional surgery.",
+    ],
+    [
+      ShieldCheck,
+      "Smaller Scars",
+      "Smaller cuts may mean smaller scars, depending on the procedure.",
+    ],
+    [
+      Activity,
+      "Shorter Hospital Stay",
+      "Many suitable procedures are day care or need only a short hospital stay.",
+    ],
+  ] as const;
+
+  return (
+    <section className="comfort-section" aria-labelledby="comfort-heading">
+      <div className="comfort-intro">
+        <span className="eyebrow">WHEN MINIMALLY INVASIVE CARE IS SUITABLE</span>
+        <h2 id="comfort-heading">Treatment Designed Around Your Comfort</h2>
+        <p>Some modern procedures may offer:</p>
+      </div>
+      <div className="comfort-grid">
+        {items.map(([Icon, title, text]) => (
+          <article key={title}>
+            <span className="comfort-icon" aria-hidden="true">
+              <Icon size={22} />
+            </span>
+            <div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          </article>
+        ))}
+        <p className="comfort-note">
+          Your clinician will explain what is suitable for you. Treatment and
+          recovery vary from person to person.
+        </p>
+      </div>
+    </section>
+  );
+}
 export function CTASection({
   title = "Not Sure What to Do Next?",
   text = "If you're experiencing symptoms related to varicose veins, fistula, fissure, or piles/hemorrhoids, speak with our team.",

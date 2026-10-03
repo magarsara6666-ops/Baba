@@ -13,6 +13,7 @@ import {
   CTASection,
   Journey,
   Benefits,
+  TreatmentComfort,
   SectionHeading,
   ConsultationPhoto,
   TrustStrip,
@@ -93,6 +94,7 @@ export default function Home() {
           </Link>
         </div>
         <ServiceGrid />
+        <TreatmentComfort />
       </section>
       <section className="section soft">
         <div className="container concern-layout">

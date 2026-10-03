@@ -570,6 +570,63 @@ svg {
 .card-book:hover {
   color: white;
 }
+.comfort-section {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
+  gap: 50px;
+  margin-top: 45px;
+  padding: 36px 40px;
+  border: 1px solid #d7e7de;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #eef7f1 0%, #f8fbf8 100%);
+}
+.comfort-intro h2 {
+  max-width: 410px;
+  margin-bottom: 12px;
+  font-size: 30px;
+}
+.comfort-intro > p {
+  margin: 0;
+  font-size: 16px;
+}
+.comfort-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.comfort-grid article {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.comfort-icon {
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: var(--teal);
+  background: white;
+  box-shadow: 0 7px 18px #17493c0d;
+}
+.comfort-grid h3 {
+  margin: 2px 0 8px;
+  font-size: 18px;
+}
+.comfort-grid article p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.comfort-note {
+  grid-column: 1 / -1;
+  margin: 2px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #d7e7de;
+  color: var(--muted);
+  font-size: 12px;
+}
 .concern-layout {
   display: grid;
   grid-template-columns: 0.9fr 1.15fr;
@@ -1631,6 +1688,10 @@ svg {
   .service-card h3 {
     min-height: 0;
   }
+  .comfort-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
   .section {
     padding-top: 65px;
     padding-bottom: 65px;
@@ -1750,6 +1811,10 @@ svg {
   .section-header-row > .text-link {
     margin-top: -17px;
     margin-bottom: 30px;
+  }
+  .comfort-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   .concern-layout,
   .about-grid {
@@ -2042,6 +2107,16 @@ svg {
     width: auto;
     align-self: flex-start;
     padding: 13px 18px;
+  }
+  .comfort-section {
+    margin-top: 32px;
+    padding: 28px 22px;
+  }
+  .comfort-intro h2 {
+    font-size: 28px;
+  }
+  .comfort-grid article p {
+    font-size: 14px;
   }
   .concern-grid {
     gap: 12px;
