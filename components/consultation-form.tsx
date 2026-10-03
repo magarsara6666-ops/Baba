@@ -37,7 +37,7 @@ export function ConsultationForm() {
     const lifecycle = new AbortController();
     const schema = z
       .object({
-        condition: z.enum([
+        problem: z.enum([
           "Varicose Veins",
           "Fistula / Fissure",
           "Piles / Hemorrhoids",
@@ -60,7 +60,7 @@ export function ConsultationForm() {
             inputSchema: {
               type: "object",
               properties: {
-                condition: {
+                problem: {
                   type: "string",
                   enum: [
                     "Varicose Veins",
@@ -78,7 +78,7 @@ export function ConsultationForm() {
                   enum: ["Any time", "Morning", "Afternoon", "Evening"],
                 },
               },
-              required: ["condition"],
+              required: ["problem"],
               additionalProperties: false,
             },
             annotations: { readOnlyHint: false, untrustedContentHint: false },
@@ -89,13 +89,18 @@ export function ConsultationForm() {
               if (!form) return { status: "form_unavailable" };
               for (const [key, value] of Object.entries(parsed.data)) {
                 const field = form.elements.namedItem(key);
-                if (field instanceof HTMLSelectElement) field.value = value;
+                if (
+                  field instanceof HTMLSelectElement ||
+                  field instanceof HTMLInputElement ||
+                  field instanceof HTMLTextAreaElement
+                )
+                  field.value = value;
               }
               form.scrollIntoView({ block: "center" });
               return {
                 status: "prepared",
                 submitted: false,
-                condition: parsed.data.condition,
+                problem: parsed.data.problem,
               };
             },
           },
@@ -143,7 +148,6 @@ export function ConsultationForm() {
         );
       setState("success");
       track("consultation_form_submit", {
-        condition: result.data.condition,
         method: result.data.method,
       });
     } catch (err) {
@@ -200,7 +204,7 @@ export function ConsultationForm() {
       </div>
       <fieldset className="form-section">
         <legend>
-          <span>1</span> Your contact details
+          <span>1</span> Patient details
         </legend>
         <div className="form-grid">
           <div>
@@ -231,6 +235,48 @@ export function ConsultationForm() {
             />
             {error("phone")}
           </div>
+          <div>
+            <label htmlFor="age">
+              Age <span>*</span>
+            </label>
+            <Input
+              {...attrs("age")}
+              type="number"
+              inputMode="numeric"
+              min={1}
+              max={120}
+              required
+              placeholder="Age"
+            />
+            {error("age")}
+          </div>
+          <div>
+            <label htmlFor="sex">
+              Sex <span>*</span>
+            </label>
+            <NativeSelect {...attrs("sex")} defaultValue="" required>
+              <option value="" disabled>
+                Select an option
+              </option>
+              {["Female", "Male", "Other", "Prefer not to say"].map((x) => (
+                <option key={x}>{x}</option>
+              ))}
+            </NativeSelect>
+            {error("sex")}
+          </div>
+          <div className="full">
+            <label htmlFor="address">
+              Address <span>*</span>
+            </label>
+            <Input
+              {...attrs("address")}
+              autoComplete="street-address"
+              maxLength={250}
+              required
+              placeholder="Your address"
+            />
+            {error("address")}
+          </div>
           <div className="full">
             <label htmlFor="email">
               Email <small>(optional)</small>
@@ -250,27 +296,25 @@ export function ConsultationForm() {
 
       <fieldset className="form-section">
         <legend>
-          <span>2</span> Consultation preferences
+          <span>2</span> Consultation details
         </legend>
         <div className="form-grid">
           <div className="full">
-            <label htmlFor="condition">
-              Condition / Concern <span>*</span>
+            <label htmlFor="problem">
+              Problem / Concern <span>*</span>
             </label>
-            <NativeSelect {...attrs("condition")} defaultValue="" required>
-              <option value="" disabled>
-                Select your concern
-              </option>
-              {[
-                "Varicose Veins",
-                "Fistula / Fissure",
-                "Piles / Hemorrhoids",
-                "Other",
-              ].map((x) => (
-                <option key={x}>{x}</option>
-              ))}
-            </NativeSelect>
-            {error("condition")}
+            <Textarea
+              {...attrs("problem")}
+              maxLength={500}
+              rows={4}
+              required
+              placeholder="Briefly describe your problem or select the service you want to discuss"
+            />
+            <p className="form-help">
+              Please keep this brief. Do not include medical reports or
+              identification numbers.
+            </p>
+            {error("problem")}
           </div>
           <div>
             <label htmlFor="method">Preferred Contact Method</label>
@@ -288,22 +332,6 @@ export function ConsultationForm() {
               <option>Afternoon</option>
               <option>Evening</option>
             </NativeSelect>
-          </div>
-          <div className="full">
-            <label htmlFor="message">
-              Message <small>(optional)</small>
-            </label>
-            <Textarea
-              {...attrs("message")}
-              maxLength={1000}
-              rows={4}
-              placeholder="A brief question or a suitable callback time"
-            />
-            <p className="form-help">
-              Please do not include medical reports, identification numbers, or
-              detailed medical history.
-            </p>
-            {error("message")}
           </div>
         </div>
       </fieldset>
