@@ -149,36 +149,44 @@ svg {
 .logo {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 8px;
   flex-shrink: 0;
+}
+.logo-art {
+  position: relative;
+  display: block;
+  width: 84px;
+  height: 62px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.logo-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 62px;
+}
+.logo-wordmark {
+  display: block;
   line-height: 1;
 }
-.logo-mark {
-  height: 44px;
-  width: 44px;
-  border: 1px solid #bfd8cc;
-  border-radius: 12px;
-  color: var(--teal);
-  display: grid;
-  place-items: center;
-  background: #eff6f0;
-}
-.logo-mark svg {
-  width: 30px;
-  height: 30px;
-}
-.logo strong {
+.logo-wordmark strong {
   display: block;
+  color: #07192e;
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2.2px;
 }
-.logo small {
+.logo-wordmark small {
   display: block;
-  font-size: 8px;
+  margin-top: 8px;
+  color: #173f67;
+  font-size: 7.5px;
   font-weight: 700;
-  letter-spacing: 0.75px;
-  margin-top: 9px;
+  letter-spacing: 0.65px;
 }
 .desktop-nav {
   display: flex;
@@ -1563,8 +1571,15 @@ svg {
     font-size: 11px;
     padding: 12px;
   }
-  .logo strong {
-    font-size: 23px;
+  .logo-art {
+    width: 76px;
+    height: 56px;
+  }
+  .logo-image {
+    height: 56px;
+  }
+  .logo-wordmark strong {
+    font-size: 22px;
   }
 }
 @media (max-width: 1024px) {
@@ -1905,25 +1920,24 @@ svg {
   .header-inner {
     height: 73px;
   }
-  .logo strong {
-    font-size: 21px;
-    letter-spacing: 1.6px;
-  }
-  .logo small {
-    font-size: 7px;
-    letter-spacing: 0.45px;
-    margin-top: 8px;
-  }
-  .logo-mark {
-    width: 37px;
-    height: 37px;
-    border-radius: 9px;
-  }
-  .logo-mark svg {
-    width: 26px;
-  }
   .logo {
-    gap: 9px;
+    gap: 5px;
+  }
+  .logo-art {
+    width: 65px;
+    height: 48px;
+  }
+  .logo-image {
+    height: 48px;
+  }
+  .logo-wordmark strong {
+    font-size: 19px;
+    letter-spacing: 1.4px;
+  }
+  .logo-wordmark small {
+    margin-top: 6px;
+    font-size: 6px;
+    letter-spacing: 0.35px;
   }
   .hero-copy > .eyebrow {
     font-size: 8px;

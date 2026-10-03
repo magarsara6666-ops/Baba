@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   description:
     "Professional consultation and modern treatment options for varicose veins, fistula, fissure and piles/hemorrhoids.",
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   ...(clinic.websiteUrl ? { metadataBase: new URL(clinic.websiteUrl) } : {}),
 };
 export default function RootLayout({

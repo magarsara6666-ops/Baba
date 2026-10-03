@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Plus, Menu, ChevronDown, Phone, ShieldCheck } from "lucide-react";
+import { Menu, ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -25,10 +26,17 @@ import { track } from "@/lib/analytics";
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label={`${clinic.name} home`}>
-      <span className="logo-mark">
-        <Plus strokeWidth={3} />
+      <span className="logo-art" aria-hidden="true">
+        <Image
+          className="logo-image"
+          src="/images/logo-removebg-preview.png"
+          alt=""
+          width={986}
+          height={253}
+          priority
+        />
       </span>
-      <span>
+      <span className="logo-wordmark" aria-hidden="true">
         <strong>DEEPSARA</strong>
         <small>SUPER SPECIALITY LASER CLINIC</small>
       </span>
