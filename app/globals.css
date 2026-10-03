@@ -317,6 +317,16 @@ svg {
   align-items: center;
   gap: 8px;
 }
+.hero-copy > .hero-clinic-name {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d7e7de;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 8px 24px rgba(24, 72, 64, 0.06);
+}
 .tiny-line {
   width: 19px;
   height: 1px;
@@ -331,6 +341,25 @@ svg {
 }
 .hero-copy h1 span {
   color: var(--teal);
+}
+.hero-copy h1 .hero-title-main {
+  display: block;
+  color: var(--navy);
+}
+.hero-copy h1 .hero-title-sub {
+  display: block;
+  margin-top: 10px;
+  color: var(--teal);
+}
+.hero-copy h1 .hero-under {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--navy);
+  font-size: 0.42em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 .hero-lead {
   font-size: 17px;
@@ -2321,10 +2350,6 @@ svg {
   align-items: center;
   gap: 8px;
 }
-.hero-copy h1 .hero-with {
-  font-size: 0.65em;
-  color: var(--navy);
-}
 .form-grid label {
   font-size: 14px;
 }
@@ -2335,9 +2360,6 @@ svg {
 }
 .chat-trigger svg {
   pointer-events: none;
-}
-.hero-copy h1 .hero-with {
-  margin-right: 0.15em;
 }
 @media (max-width: 768px) {
   .topline a {

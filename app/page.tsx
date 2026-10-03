@@ -32,18 +32,17 @@ export default function Home() {
       <section className="home-hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">
+            <span className="eyebrow hero-clinic-name">
               <span className="tiny-line" />
-              WELCOME TO DEEPSARA SUPER SPECIALITY LASER CLINIC
+              DEEPSARA SUPER SPECIALITY LASER CLINIC
             </span>
             <h1>
-              Advanced Laser Treatment
-              <br />
-              <span className="hero-with">with </span>
-              <span>
-                Professional
-                <br />
-                Guidance
+              <span className="hero-title-main">
+                Advanced Laser Treatment
+              </span>
+              <span className="hero-title-sub">
+                <span className="hero-under">Under</span>
+                Professional Guidance
               </span>
             </h1>
             <p className="hero-lead">
