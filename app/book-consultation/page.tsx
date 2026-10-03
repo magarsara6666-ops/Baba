@@ -2,6 +2,7 @@ import { LockKeyhole, MessagesSquare, Check } from "lucide-react";
 import { PageHero } from "@/components/shared";
 import { ConsultationForm } from "@/components/consultation-form";
 import { Action } from "@/components/actions";
+import { clinic } from "@/lib/clinic";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Book a Free Consultation",
@@ -48,8 +49,8 @@ export default function Booking() {
           </div>
           <p>Prefer to speak directly?</p>
           <div className="actions">
-            <Action kind="call" />
-            <Action kind="whatsapp" />
+            <Action kind="call">Call {clinic.phone}</Action>
+            <Action kind="whatsapp">WhatsApp {clinic.whatsapp}</Action>
           </div>
           <p className="form-help">
             For urgent or severe symptoms, seek prompt medical care rather than

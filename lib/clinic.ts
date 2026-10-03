@@ -1,7 +1,7 @@
 export const clinic = {
   name: "Deepsara Super Speciality and Laser Clinic",
-  phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "",
-  whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "",
+  phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "9855087612",
+  whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "9855087612",
   email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || "",
   address: process.env.NEXT_PUBLIC_CLINIC_ADDRESS || "",
   openingHours: process.env.NEXT_PUBLIC_CLINIC_HOURS || "",
@@ -21,6 +21,10 @@ export const phoneHref =
   clinic.phone && /^\+?[\d\s()-]{7,20}$/.test(clinic.phone)
     ? `tel:${clinic.phone.replace(/[^+\d]/g, "")}`
     : "";
+const whatsappDigits = clinic.whatsapp.replace(/\D/g, "");
+const whatsappInternational = /^9[678]\d{8}$/.test(whatsappDigits)
+  ? `977${whatsappDigits}`
+  : whatsappDigits;
 export const whatsappHref = /^\+?[\d\s()-]{7,20}$/.test(clinic.whatsapp)
-  ? `https://wa.me/${clinic.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(contactMessage)}`
+  ? `https://wa.me/${whatsappInternational}?text=${encodeURIComponent(contactMessage)}`
   : "";

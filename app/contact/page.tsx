@@ -2,7 +2,7 @@ import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { PageHero } from "@/components/shared";
 import { Action, Actions } from "@/components/actions";
 import { ConsultationForm } from "@/components/consultation-form";
-import { clinic } from "@/lib/clinic";
+import { clinic, phoneHref, whatsappHref } from "@/lib/clinic";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Contact Us",
@@ -10,6 +10,40 @@ export const metadata = seo(
   "/contact",
 );
 export default function Contact() {
+  const contactItems = [
+    {
+      icon: Phone,
+      title: "Phone",
+      value: clinic.phone || "[ADD PHONE NUMBER]",
+      href: phoneHref,
+    },
+    {
+      icon: MessageCircle,
+      title: "WhatsApp",
+      value: clinic.whatsapp || "[ADD WHATSAPP NUMBER]",
+      href: whatsappHref,
+      external: true,
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      value: clinic.email || "[ADD EMAIL]",
+      href: clinic.email ? `mailto:${clinic.email}` : "",
+    },
+    {
+      icon: MapPin,
+      title: "Clinic Address",
+      value: clinic.address || "[ADD CLINIC ADDRESS]",
+      href: "",
+    },
+    {
+      icon: Clock,
+      title: "Opening Hours",
+      value: clinic.openingHours || "[ADD OPENING HOURS]",
+      href: "",
+    },
+  ];
+
   return (
     <>
       <PageHero
@@ -18,38 +52,26 @@ export default function Contact() {
       />
       <section className="section container">
         <div className="contact-grid">
-          {[
-            [Phone, "Phone", clinic.phone || "[ADD PHONE NUMBER]"],
-            [
-              MessageCircle,
-              "WhatsApp",
-              clinic.whatsapp || "[ADD WHATSAPP NUMBER]",
-            ],
-            [Mail, "Email", clinic.email || "[ADD EMAIL]"],
-            [
-              MapPin,
-              "Clinic Address",
-              clinic.address || "[ADD CLINIC ADDRESS]",
-            ],
-            [
-              Clock,
-              "Opening Hours",
-              clinic.openingHours || "[ADD OPENING HOURS]",
-            ],
-          ].map(([icon, title, value]) => {
-            const Icon = icon as typeof Phone;
+          {contactItems.map(({ icon: Icon, title, value, href, external }) => {
             return (
-              <article className="contact-card" key={String(title)}>
+              <article className="contact-card" key={title}>
                 <Icon />
-                <h2>{title as string}</h2>
+                <h2>{title}</h2>
                 <p>
-                  {title === "Email" && clinic.email ? (
-                    <a href={`mailto:${clinic.email}`}>{value as string}</a>
+                  {href ? (
+                    <a
+                      href={href}
+                      {...(external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {value}
+                    </a>
                   ) : (
-                    (value as string)
+                    value
                   )}
                 </p>
-                {String(value).startsWith("[") && (
+                {value.startsWith("[") && (
                   <small>
                     Verified details will be added before public launch.
                   </small>
@@ -62,12 +84,6 @@ export default function Contact() {
           <Actions all />
           <Action kind="directions" />
         </div>
-        {(!clinic.phone || !clinic.whatsapp) && (
-          <p className="care-note" role="status">
-            Direct phone and WhatsApp contact will be available when the clinic
-            supplies its verified numbers.
-          </p>
-        )}
       </section>
       <section className="section soft">
         <div className="container contact-form-layout">
