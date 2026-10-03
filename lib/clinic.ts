@@ -5,7 +5,9 @@ export const clinic = {
   email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || "",
   address: process.env.NEXT_PUBLIC_CLINIC_ADDRESS || "",
   openingHours: process.env.NEXT_PUBLIC_CLINIC_HOURS || "",
-  websiteUrl: process.env.NEXT_PUBLIC_SITE_URL || "",
+  websiteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://deepsara-laser-clinic.margaretmoorex102.chatgpt.site",
   googleMapsUrl: process.env.NEXT_PUBLIC_MAPS_URL || "",
   mapsEmbedUrl: process.env.NEXT_PUBLIC_MAPS_EMBED_URL || "",
   doctorName: "Dr Deepak Thapa Magar",

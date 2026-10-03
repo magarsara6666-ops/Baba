@@ -448,6 +448,7 @@ export function Footer() {
               ["Services", "/services"],
               ["Blog", "/blog"],
               ["Contact", "/contact"],
+              ["Free Consultation Form", "/book-consultation"],
             ].map(([a, b]) => (
               <Link key={a} href={b}>
                 {a}
