@@ -11,7 +11,7 @@ import { clinic } from "@/lib/clinic";
 import { JsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: {
-    default: "Deepsara Super Speciality Laser Clinic",
+    default: "Deepsara Super Speciality and Laser Clinic",
     template: "%s | Deepsara",
   },
   description:

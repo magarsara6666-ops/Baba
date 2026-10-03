@@ -6,7 +6,7 @@ import { clinic } from "@/lib/clinic";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Contact Us",
-  "Contact Deepsara Super Speciality Laser Clinic to discuss your concerns or request a free consultation call.",
+  "Contact Deepsara Super Speciality and Laser Clinic to discuss your concerns or request a free consultation call.",
   "/contact",
 );
 export default function Contact() {

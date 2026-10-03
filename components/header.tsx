@@ -38,7 +38,7 @@ export function Logo() {
       </span>
       <span className="logo-wordmark" aria-hidden="true">
         <strong>DEEPSARA</strong>
-        <small>SUPER SPECIALITY LASER CLINIC</small>
+        <small>SUPER SPECIALITY AND LASER CLINIC</small>
       </span>
     </Link>
   );

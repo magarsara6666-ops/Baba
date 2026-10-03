@@ -15,7 +15,7 @@ export default function Services() {
     <>
       <PageHero
         title="Specialized Treatment & Care"
-        text="Explore consultation and treatment options available at Deepsara Super Speciality Laser Clinic."
+        text="Explore consultation and treatment options available at Deepsara Super Speciality and Laser Clinic."
       />
       <section className="section container">
         <ServiceGrid />

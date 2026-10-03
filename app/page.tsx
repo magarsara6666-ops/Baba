@@ -34,7 +34,7 @@ export default function Home() {
           <div className="hero-copy">
             <span className="eyebrow hero-clinic-name">
               <span className="tiny-line" />
-              DEEPSARA SUPER SPECIALITY LASER CLINIC
+              DEEPSARA SUPER SPECIALITY AND LASER CLINIC
             </span>
             <h1>
               <span className="hero-title-main">

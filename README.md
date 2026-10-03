@@ -1,4 +1,4 @@
-# Deepsara Super Speciality Laser Clinic
+# Deepsara Super Speciality and Laser Clinic
 
 React 19, TypeScript, Tailwind 4, Lucide icons and Next.js App Router APIs, running with the Sites Vinext runtime for Cloudflare deployment. The App Router application uses standard `next/link`, `next/image` and metadata APIs. Vinext is a compatibility runtime, not the standard Next.js production server.
 

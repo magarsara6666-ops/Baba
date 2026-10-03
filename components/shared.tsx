@@ -240,7 +240,7 @@ export function Benefits() {
       <div className="container">
         <SectionHeading
           eyebrow="CARE BUILT AROUND YOU"
-          title="Why Choose Deepsara Super Speciality Laser Clinic?"
+          title="Why Choose Deepsara Super Speciality and Laser Clinic?"
         />
         <div className="benefit-grid">
           {benefits.map(([title, text], i) => {

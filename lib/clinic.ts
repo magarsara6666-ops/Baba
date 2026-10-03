@@ -1,5 +1,5 @@
 export const clinic = {
-  name: "Deepsara Super Speciality Laser Clinic",
+  name: "Deepsara Super Speciality and Laser Clinic",
   phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "",
   whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "",
   email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || "",
