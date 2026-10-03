@@ -114,11 +114,8 @@ export default function Contact() {
                 <>
                   <MapPin size={40} />
                   <h3>Visit Our Clinic</h3>
-                  <p>[ADD VERIFIED CLINIC LOCATION]</p>
-                  <p>
-                    A Google Map will appear here once the location is
-                    confirmed.
-                  </p>
+                  <p>{clinic.address}</p>
+                  <p>{clinic.openingHours}</p>
                 </>
               )}
             </div>

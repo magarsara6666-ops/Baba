@@ -3,8 +3,12 @@ export const clinic = {
   phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "9855087612",
   whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "9855087612",
   email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || "",
-  address: process.env.NEXT_PUBLIC_CLINIC_ADDRESS || "",
-  openingHours: process.env.NEXT_PUBLIC_CLINIC_HOURS || "",
+  address:
+    process.env.NEXT_PUBLIC_CLINIC_ADDRESS ||
+    "Balmandir Road, Bharatpur-10, Chitwan",
+  openingHours:
+    process.env.NEXT_PUBLIC_CLINIC_HOURS ||
+    "Morning: 7:00–8:00 AM · Evening: 5:00–7:00 PM",
   websiteUrl:
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://deepsara-laser-clinic.margaretmoorex102.chatgpt.site",
