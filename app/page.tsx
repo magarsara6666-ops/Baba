@@ -62,7 +62,11 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="hero-image-wrap">
+          <Link
+            className="hero-image-wrap"
+            href="/about#about-doctor"
+            aria-label="About Dr Deepak Thapa Magar"
+          >
             <ConsultationPhoto />
             <div className="hero-image-label doctor-identity">
               <span className="label-icon">
@@ -77,7 +81,7 @@ export default function Home() {
             <span className="hero-image-corner" aria-hidden="true">
               +
             </span>
-          </div>
+          </Link>
         </div>
         <TrustStrip />
       </section>

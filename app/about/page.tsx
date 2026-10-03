@@ -20,7 +20,7 @@ export default function About() {
         title={`About ${clinic.name}`}
         text="Thoughtful conversations. Clear information. Care built around your individual needs."
       />
-      <section className="section container about-grid">
+      <section id="about-doctor" className="section container about-grid">
         <ConsultationPhoto />
         <div>
           <SectionHeading

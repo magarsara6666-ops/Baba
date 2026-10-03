@@ -45,7 +45,7 @@ export function Logo() {
 }
 const links = [
   ["Home", "/"],
-  ["About Us", "/about"],
+  ["About Us", "/about#about-doctor"],
   ["Blog", "/blog"],
   ["Contact", "/contact"],
 ];
@@ -74,29 +74,44 @@ export function Header() {
               <Link
                 key={href}
                 href={href}
-                aria-current={pathname === href ? "page" : undefined}
+                aria-current={
+                  pathname === href.split("#")[0] ? "page" : undefined
+                }
               >
                 {name}
               </Link>
             ))}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="nav-trigger">
-                  Services
-                  <ChevronDown size={14} />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="service-menu" align="start">
-                <DropdownMenuItem asChild>
-                  <Link href="/services">All Services</Link>
-                </DropdownMenuItem>
-                {treatments.map((t) => (
-                  <DropdownMenuItem key={t.slug} asChild>
-                    <Link href={`/services/${t.slug}`}>{t.name}</Link>
+            <div className="service-nav-group">
+              <Link
+                href="/services"
+                aria-current={
+                  pathname.startsWith("/services") ? "page" : undefined
+                }
+              >
+                Services
+              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className="nav-trigger"
+                    aria-label="Open treatment links"
+                  >
+                    <ChevronDown size={14} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="service-menu" align="start">
+                  <DropdownMenuItem asChild>
+                    <Link href="/services">Our Services</Link>
                   </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  {treatments.map((t) => (
+                    <DropdownMenuItem key={t.slug} asChild>
+                      <Link href={`/services/${t.slug}`}>{t.name}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
             {links.slice(2).map(([name, href]) => (
               <Link
                 key={href}
@@ -136,13 +151,14 @@ export function Header() {
                 Find care and contact our team.
               </SheetDescription>
               <nav aria-label="Mobile navigation">
-                {links.map(([label, href]) => (
-                  <SheetClose asChild key={href}>
-                    <Link href={href}>{label}</Link>
-                  </SheetClose>
-                ))}
                 <SheetClose asChild>
-                  <Link href="/services">Services</Link>
+                  <Link href="/">Home</Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/about#about-doctor">About Us</Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/services">Our Services</Link>
                 </SheetClose>
                 {treatments.map((t) => (
                   <SheetClose asChild key={t.slug}>
@@ -154,6 +170,12 @@ export function Header() {
                     </Link>
                   </SheetClose>
                 ))}
+                <SheetClose asChild>
+                  <Link href="/blog">Blog</Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/contact">Contact</Link>
+                </SheetClose>
                 <SheetClose asChild>
                   <Link
                     className="btn btn-primary"

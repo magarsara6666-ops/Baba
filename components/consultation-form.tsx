@@ -195,103 +195,121 @@ export function ConsultationForm() {
       <div className="form-intro">
         <span className="eyebrow">LET’S START A CONVERSATION</span>
         <h2>Request a Free Consultation</h2>
-        <p>Leave your details and tell us how you’d like to be contacted.</p>
+        <p>
+          Complete this short form. Our team will use your details only to
+          respond to your consultation request.
+        </p>
       </div>
-      <div className="form-grid">
-        <div>
-          <label htmlFor="name">
-            Full Name <span>*</span>
-          </label>
-          <Input
-            {...attrs("name")}
-            autoComplete="name"
-            maxLength={100}
-            required
-            placeholder="Your full name"
-          />
-          {error("name")}
+      <fieldset className="form-section">
+        <legend>
+          <span>1</span> Your contact details
+        </legend>
+        <div className="form-grid">
+          <div>
+            <label htmlFor="name">
+              Full Name <span>*</span>
+            </label>
+            <Input
+              {...attrs("name")}
+              autoComplete="name"
+              maxLength={100}
+              required
+              placeholder="Your full name"
+            />
+            {error("name")}
+          </div>
+          <div>
+            <label htmlFor="phone">
+              Phone Number <span>*</span>
+            </label>
+            <Input
+              {...attrs("phone")}
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              required
+              maxLength={20}
+              placeholder="Include your country code"
+            />
+            {error("phone")}
+          </div>
+          <div className="full">
+            <label htmlFor="email">
+              Email <small>(optional)</small>
+            </label>
+            <Input
+              {...attrs("email")}
+              autoComplete="email"
+              type="email"
+              inputMode="email"
+              maxLength={254}
+              placeholder="you@example.com"
+            />
+            {error("email")}
+          </div>
         </div>
-        <div>
-          <label htmlFor="phone">
-            Phone Number <span>*</span>
-          </label>
-          <Input
-            {...attrs("phone")}
-            type="tel"
-            autoComplete="tel"
-            required
-            maxLength={20}
-            placeholder="Include your country code"
-          />
-          {error("phone")}
+      </fieldset>
+
+      <fieldset className="form-section">
+        <legend>
+          <span>2</span> Consultation preferences
+        </legend>
+        <div className="form-grid">
+          <div className="full">
+            <label htmlFor="condition">
+              Condition / Concern <span>*</span>
+            </label>
+            <NativeSelect {...attrs("condition")} defaultValue="" required>
+              <option value="" disabled>
+                Select your concern
+              </option>
+              {[
+                "Varicose Veins",
+                "Fistula",
+                "Fissure",
+                "Piles / Hemorrhoids",
+                "Other",
+              ].map((x) => (
+                <option key={x}>{x}</option>
+              ))}
+            </NativeSelect>
+            {error("condition")}
+          </div>
+          <div>
+            <label htmlFor="method">Preferred Contact Method</label>
+            <NativeSelect {...attrs("method")} defaultValue="Phone">
+              {["Phone", "WhatsApp", "Email"].map((x) => (
+                <option key={x}>{x}</option>
+              ))}
+            </NativeSelect>
+          </div>
+          <div>
+            <label htmlFor="time">Preferred Consultation Time</label>
+            <NativeSelect {...attrs("time")} defaultValue="Any time">
+              <option>Any time</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+            </NativeSelect>
+          </div>
+          <div className="full">
+            <label htmlFor="message">
+              Message <small>(optional)</small>
+            </label>
+            <Textarea
+              {...attrs("message")}
+              maxLength={1000}
+              rows={4}
+              placeholder="A brief question or a suitable callback time"
+            />
+            <p className="form-help">
+              Please do not include medical reports, identification numbers, or
+              detailed medical history.
+            </p>
+            {error("message")}
+          </div>
         </div>
-        <div>
-          <label htmlFor="email">
-            Email <small>(optional)</small>
-          </label>
-          <Input
-            {...attrs("email")}
-            autoComplete="email"
-            type="email"
-            maxLength={254}
-            placeholder="you@example.com"
-          />
-          {error("email")}
-        </div>
-        <div>
-          <label htmlFor="condition">
-            Condition / Concern <span>*</span>
-          </label>
-          <NativeSelect {...attrs("condition")} defaultValue="" required>
-            <option value="" disabled>
-              Select your concern
-            </option>
-            {[
-              "Varicose Veins",
-              "Fistula",
-              "Fissure",
-              "Piles / Hemorrhoids",
-              "Other",
-            ].map((x) => (
-              <option key={x}>{x}</option>
-            ))}
-          </NativeSelect>
-          {error("condition")}
-        </div>
-        <div>
-          <label htmlFor="method">Preferred Contact Method</label>
-          <NativeSelect {...attrs("method")} defaultValue="Phone">
-            {["Phone", "WhatsApp", "Email"].map((x) => (
-              <option key={x}>{x}</option>
-            ))}
-          </NativeSelect>
-        </div>
-        <div>
-          <label htmlFor="time">Preferred Consultation Time</label>
-          <NativeSelect {...attrs("time")} defaultValue="Any time">
-            <option>Any time</option>
-            <option>Morning</option>
-            <option>Afternoon</option>
-            <option>Evening</option>
-          </NativeSelect>
-        </div>
-        <div className="full">
-          <label htmlFor="message">
-            Message <small>(optional)</small>
-          </label>
-          <Textarea
-            {...attrs("message")}
-            maxLength={1000}
-            rows={4}
-            placeholder="Questions about our services or a preferred callback time"
-          />
-          <p className="form-help">
-            Please do not include medical reports, identification numbers, or
-            detailed medical history.
-          </p>
-          {error("message")}
-        </div>
-      </div>
+      </fieldset>
       <div className="honeypot" aria-hidden="true">
         <label htmlFor="website">Leave this empty</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
