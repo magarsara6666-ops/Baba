@@ -2,7 +2,8 @@ export const clinic = {
   name: "Deepsara Super Speciality and Laser Clinic",
   phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || "9855087612",
   whatsapp: process.env.NEXT_PUBLIC_CLINIC_WHATSAPP || "9855087612",
-  email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || "",
+  email:
+    process.env.NEXT_PUBLIC_CLINIC_EMAIL || "magarsara6666@gmail.com",
   address:
     process.env.NEXT_PUBLIC_CLINIC_ADDRESS ||
     "Balmandir Road, Bharatpur-10, Chitwan",

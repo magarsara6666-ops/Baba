@@ -15,10 +15,9 @@ export default function Privacy() {
       />
       <article className="section container article">
         <p>
-          Last updated: 03 October 2026. This policy describes the website’s
-          intended data handling. The clinic must verify its contact details,
-          service providers, retention periods and applicable legal requirements
-          before public launch.
+          Last updated: 05 October 2026. This policy describes how information
+          submitted through the website is handled. The clinic is responsible
+          for reviewing its retention periods and applicable legal requirements.
         </p>
         <section>
           <h2>Who Handles Your Information</h2>
@@ -31,10 +30,10 @@ export default function Privacy() {
         <section>
           <h2>Information You Choose to Provide</h2>
           <p>
-            The consultation form requests your name, phone number, optional
-            email, broad concern, contact preference, preferred time and
-            optional message. Do not submit medical records, identity documents
-            or detailed medical history.
+            The consultation form requests your name, age, sex, address, phone
+            number, optional email, a brief problem or concern, contact
+            preference and preferred time. Do not submit medical records,
+            identity documents or detailed medical history.
           </p>
         </section>
         <section>
@@ -48,20 +47,20 @@ export default function Privacy() {
         <section>
           <h2>Delivery and Service Providers</h2>
           <p>
-            When configured, the form sends your request over an encrypted
-            connection to the clinic’s designated delivery service. Delivery is
-            acknowledged only after that service accepts it. If delivery is
-            unavailable, the form displays an error. The clinic must document
-            its approved CRM or email provider before launch.
+            The form sends your request over an encrypted connection to
+            FormSubmit, which emails it to the clinic at {clinic.email}. The
+            form shows confirmation only after the delivery service accepts the
+            request. If delivery is unavailable, the form displays an error.
           </p>
         </section>
         <section>
           <h2>Retention and Your Choices</h2>
           <p>
-            The clinic must set and document a retention period for enquiries
-            before activating delivery. You can contact the clinic to request
-            access, correction, deletion or withdrawal of contact consent,
-            subject to applicable requirements.
+            The clinic should retain enquiries only as long as needed to respond
+            and meet applicable requirements. FormSubmit may temporarily retain
+            submissions under its own service terms. You can contact the clinic
+            to request access, correction, deletion or withdrawal of contact
+            consent, subject to applicable requirements.
           </p>
         </section>
         <section>
@@ -78,19 +77,19 @@ export default function Privacy() {
         <section>
           <h2>Third-Party Services</h2>
           <p>
-            WhatsApp, maps and external educational references have their own
-            privacy policies. Clicking those links can take you outside this
-            website. A configured embedded Google Map may send connection
-            information to Google.
+            FormSubmit, WhatsApp, maps and external educational references have
+            their own privacy policies. Clicking external links can take you
+            outside this website. A configured embedded Google Map may send
+            connection information to Google.
           </p>
         </section>
         <section>
           <h2>Security</h2>
           <p>
-            The form validates requests and keeps delivery credentials on the
-            server. Access controls and retention arrangements for the
-            destination service remain the clinic’s responsibility. Avoid
-            sharing sensitive information through general enquiry channels.
+            The form validates requests before delivery. Access controls for the
+            destination email account and retention arrangements remain the
+            clinic’s responsibility. Avoid sharing medical records or highly
+            sensitive information through this general enquiry form.
           </p>
         </section>
         <section>
