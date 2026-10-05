@@ -4,6 +4,7 @@ import {
   Check,
   Activity,
   HeartPulse,
+  MessagesSquare,
   ShieldCheck,
   Stethoscope,
 } from "lucide-react";
@@ -20,7 +21,9 @@ import {
   BlogGrid,
 } from "@/components/shared";
 import { FAQAccordion } from "@/components/faq";
+import { ConsultationForm } from "@/components/consultation-form";
 import { seo } from "@/lib/seo";
+import { clinic } from "@/lib/clinic";
 export const metadata = seo(
   "Advanced Laser Treatment & Free Consultation",
   "Professional guidance and treatment options for varicose veins, fistula/fissure and piles. Start with a private, free consultation call.",
@@ -148,6 +151,46 @@ export default function Home() {
         </div>
       </section>
       <CTASection />
+      <section
+        id="consultation-form"
+        className="section home-consultation-section"
+        aria-labelledby="home-consultation-heading"
+      >
+        <div className="container booking-layout">
+          <div className="home-consultation-copy">
+            <div className="booking-icon" aria-hidden="true">
+              <MessagesSquare size={35} />
+            </div>
+            <span className="eyebrow">BOOK DIRECTLY FROM THIS PAGE</span>
+            <h2 id="home-consultation-heading">
+              Request Your Free Consultation
+            </h2>
+            <p>
+              Tell us how to contact you and briefly share your concern. Your
+              request will be sent securely to the clinic team at
+              {" "}
+              {clinic.email}.
+            </p>
+            <ul className="symptom-list">
+              {[
+                "Choose phone, WhatsApp or email",
+                "Share only a brief description of your concern",
+                "Receive a response about the appropriate next step",
+              ].map((item) => (
+                <li key={item}>
+                  <Check size={18} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="form-help">
+              This request is for an initial consultation callback and does not
+              confirm an appointment.
+            </p>
+          </div>
+          <ConsultationForm />
+        </div>
+      </section>
       <Journey />
       <Benefits />
       <section className="section container faq-section">
