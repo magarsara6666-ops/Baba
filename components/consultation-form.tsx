@@ -136,16 +136,48 @@ export function ConsultationForm() {
     setErrors({});
     setState("loading");
     try {
-      const response = await fetch("/api/consultation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result.data),
-      });
-      const body = (await response.json()) as { error?: string };
-      if (!response.ok)
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${clinic.email}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: "New Free Consultation Request — Deepsara Clinic",
+            _template: "table",
+            _captcha: "false",
+            _url: `${clinic.websiteUrl}/book-consultation`,
+            name: result.data.name,
+            age: result.data.age,
+            sex: result.data.sex,
+            address: result.data.address,
+            phone: result.data.phone,
+            email: result.data.email || "Not provided",
+            problem: result.data.problem,
+            preferred_contact_method: result.data.method,
+            preferred_consultation_time: result.data.time,
+            consent_to_contact: "Yes",
+            submitted_at: new Date().toISOString(),
+          }),
+        },
+      );
+      const body = (await response.json().catch(() => null)) as {
+        success?: boolean | string;
+        message?: string;
+      } | null;
+      const delivered =
+        response.ok &&
+        (body?.success === true || body?.success === "true");
+      if (!delivered) {
+        const needsActivation = body?.message && /activat/i.test(body.message);
         throw new Error(
-          body.error || "We could not send your request. Please try again.",
+          needsActivation
+            ? "Email delivery is waiting for one-time FormSubmit activation. Please call or WhatsApp the clinic until activation is completed."
+            : "We could not email your request. Please try again or call or WhatsApp the clinic directly.",
         );
+      }
       setState("success");
       track("consultation_form_submit", {
         method: result.data.method,
