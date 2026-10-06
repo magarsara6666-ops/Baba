@@ -33,47 +33,70 @@ export async function POST(request: Request) {
     const webhookUrl = process.env.CONSULTATION_WEBHOOK_URL;
     const webhookToken = process.env.CONSULTATION_WEBHOOK_TOKEN;
     const submittedAt = new Date().toISOString();
-    const response =
-      webhookUrl && webhookToken
-        ? await fetch(webhookUrl, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${webhookToken}`,
+    const usesWebhook = Boolean(webhookUrl && webhookToken);
+    const response = usesWebhook
+      ? await fetch(webhookUrl!, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${webhookToken!}`,
+          },
+          body: JSON.stringify({
+            ...payload,
+            source: "website",
+            submittedAt,
+          }),
+          signal: AbortSignal.timeout(10000),
+        })
+      : await fetch(`https://formsubmit.co/ajax/${clinic.email}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Origin: clinic.websiteUrl,
+            Referer: `${clinic.websiteUrl}/book-consultation`,
+          },
+          body: JSON.stringify({
+            _subject: "New Free Consultation Request — Deepsara Clinic",
+            _template: "table",
+            _captcha: "false",
+            _url: `${clinic.websiteUrl}/book-consultation`,
+            name: payload.name,
+            age: payload.age,
+            sex: payload.sex,
+            address: payload.address,
+            phone: payload.phone,
+            email: payload.email || "Not provided",
+            problem: payload.problem,
+            preferred_contact_method: payload.method,
+            preferred_consultation_time: payload.time,
+            consent_to_contact: "Yes",
+            submitted_at: submittedAt,
+          }),
+          signal: AbortSignal.timeout(10000),
+        });
+    if (usesWebhook) {
+      if (!response.ok) throw new Error("delivery");
+    } else {
+      const result = (await response.json().catch(() => null)) as {
+        success?: boolean | string;
+        message?: string;
+      } | null;
+      const delivered =
+        response.ok &&
+        (result?.success === true || result?.success === "true");
+      if (!delivered) {
+        if (result?.message && /activat/i.test(result.message))
+          return Response.json(
+            {
+              error:
+                "Email delivery is waiting for one-time activation. Please call or WhatsApp the clinic while activation is completed.",
             },
-            body: JSON.stringify({
-              ...payload,
-              source: "website",
-              submittedAt,
-            }),
-            signal: AbortSignal.timeout(10000),
-          })
-        : await fetch(`https://formsubmit.co/ajax/${clinic.email}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              _subject: "New Free Consultation Request — Deepsara Clinic",
-              _template: "table",
-              _captcha: "false",
-              _url: `${clinic.websiteUrl}/book-consultation`,
-              name: payload.name,
-              age: payload.age,
-              sex: payload.sex,
-              address: payload.address,
-              phone: payload.phone,
-              email: payload.email || "Not provided",
-              problem: payload.problem,
-              preferred_contact_method: payload.method,
-              preferred_consultation_time: payload.time,
-              consent_to_contact: "Yes",
-              submitted_at: submittedAt,
-            }),
-            signal: AbortSignal.timeout(10000),
-          });
-    if (!response.ok) throw new Error("delivery");
+            { status: 503 },
+          );
+        throw new Error("delivery");
+      }
+    }
     return Response.json(
       { success: true },
       { headers: { "Cache-Control": "no-store" } },
