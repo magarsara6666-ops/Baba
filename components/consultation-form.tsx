@@ -178,6 +178,31 @@ export function ConsultationForm() {
             : "We could not email your request. Please try again or call or WhatsApp the clinic directly.",
         );
       }
+
+      // The Flodesk form ID from the supplied embed is wired through a
+      // same-origin route so the existing visual form can stay unchanged.
+      // Flodesk requires an email address; the clinic email submission above
+      // still works when the visitor leaves the optional email blank.
+      if (result.data.email) {
+        const flodeskResponse = await fetch("/api/flodesk", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: result.data.name,
+            email: result.data.email,
+            phone: result.data.phone,
+            age: result.data.age,
+            sex: result.data.sex,
+            problem: result.data.problem,
+            time: result.data.time,
+          }),
+        });
+        if (!flodeskResponse.ok) {
+          throw new Error(
+            "Your request was received, but the email automation could not be started. Please call or WhatsApp the clinic directly.",
+          );
+        }
+      }
       setState("success");
       track("consultation_form_submit", {
         method: result.data.method,
