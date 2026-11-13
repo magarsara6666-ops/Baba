@@ -184,24 +184,38 @@ export function ConsultationForm() {
       // Flodesk requires an email address; the clinic email submission above
       // still works when the visitor leaves the optional email blank.
       if (result.data.email) {
-        const flodeskResponse = await fetch("/api/flodesk", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: result.data.name,
-            email: result.data.email,
-            phone: result.data.phone,
-            age: result.data.age,
-            sex: result.data.sex,
-            problem: result.data.problem,
-            time: result.data.time,
-          }),
+        const iframe = document.createElement("iframe");
+        iframe.name = `flodesk-submit-${Date.now()}`;
+        iframe.title = "Flodesk submission";
+        iframe.hidden = true;
+        document.body.appendChild(iframe);
+        const flodeskForm = document.createElement("form");
+        flodeskForm.action =
+          "https://form.flodesk.com/forms/6ae5a87c6e4a3ea82039839a/submit";
+        flodeskForm.method = "post";
+        flodeskForm.target = iframe.name;
+        const firstName = result.data.name.trim().split(/\s+/)[0] ?? "";
+        const fields: Record<string, string> = {
+          firstName,
+          email: result.data.email,
+          "fields.whatsappNumber": result.data.phone,
+          "fields.anythingYouWantToSay": `Age: ${result.data.age} | Sex: ${result.data.sex} | Problem: ${result.data.problem}`,
+          "fields.preferredConsultationTime": result.data.time,
+          confirm_email_address: "",
+        };
+        Object.entries(fields).forEach(([name, value]) => {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = name;
+          input.value = value;
+          flodeskForm.appendChild(input);
         });
-        if (!flodeskResponse.ok) {
-          throw new Error(
-            "Your request was received, but the email automation could not be started. Please call or WhatsApp the clinic directly.",
-          );
-        }
+        document.body.appendChild(flodeskForm);
+        flodeskForm.submit();
+        window.setTimeout(() => {
+          iframe.remove();
+          flodeskForm.remove();
+        }, 10_000);
       }
       setState("success");
       track("consultation_form_submit", {
