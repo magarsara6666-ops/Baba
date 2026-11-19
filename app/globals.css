@@ -160,6 +160,11 @@ svg {
   overflow: hidden;
   flex-shrink: 0;
 }
+.logo-art-full {
+  width: 205px;
+  height: 78px;
+  overflow: hidden;
+}
 .logo-image {
   position: absolute;
   top: 0;
@@ -168,6 +173,12 @@ svg {
   width: auto;
   max-width: none;
   height: 62px;
+}
+.logo-user-image {
+  position: static;
+  width: 205px;
+  height: 78px;
+  object-fit: contain;
 }
 .logo-wordmark {
   display: block;
@@ -424,6 +435,8 @@ svg {
 .hero-image-wrap {
   position: relative;
   margin-bottom: 20px;
+  width: min(100%, 430px);
+  justify-self: end;
 }
 .consultation-photo {
   position: relative;
@@ -438,7 +451,7 @@ svg {
 }
 .hero-image-wrap .consultation-photo {
   border-radius: 110px 8px 8px 8px;
-  height: 510px;
+  height: 390px;
 }
 .photo-caption {
   position: absolute;
@@ -1878,7 +1891,7 @@ svg {
     font-size: 54px;
   }
   .hero-image-wrap .consultation-photo {
-    height: 490px;
+    height: 390px;
   }
   .hero-copy > .eyebrow {
     font-size: 9px;
@@ -2286,8 +2299,16 @@ svg {
     width: 65px;
     height: 48px;
   }
+  .logo-art-full {
+    width: 132px;
+    height: 54px;
+  }
   .logo-image {
     height: 48px;
+  }
+  .logo-user-image {
+    width: 132px;
+    height: 54px;
   }
   .logo-wordmark strong {
     font-size: 19px;

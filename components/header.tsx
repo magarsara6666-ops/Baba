@@ -26,19 +26,15 @@ import { track } from "@/lib/analytics";
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label={`${clinic.name} home`}>
-      <span className="logo-art" aria-hidden="true">
+      <span className="logo-art logo-art-full" aria-hidden="true">
         <Image
-          className="logo-image"
-          src="/images/logo-removebg-preview.png"
-          alt=""
-          width={986}
-          height={253}
+          className="logo-image logo-user-image"
+          src="/images/deepsara-logo-user.png"
+          alt={clinic.name}
+          width={640}
+          height={320}
           priority
         />
-      </span>
-      <span className="logo-wordmark" aria-hidden="true">
-        <strong>DEEPSARA</strong>
-        <small>SUPER SPECIALITY AND LASER CLINIC</small>
       </span>
     </Link>
   );
