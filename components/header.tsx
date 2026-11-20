@@ -42,6 +42,7 @@ export function Logo() {
 const links = [
   ["Home", "/"],
   ["About Us", "/about#about-doctor"],
+  ["Doctor Profile", "/portfolio"],
   ["Blog", "/blog"],
   ["Contact", "/contact"],
 ];

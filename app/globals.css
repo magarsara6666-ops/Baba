@@ -1300,6 +1300,100 @@ svg {
 .doctor-card small {
   color: var(--muted);
 }
+.portfolio-profile {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 42px;
+  align-items: center;
+  max-width: 920px;
+}
+.portfolio-photo {
+  position: relative;
+  width: 220px;
+  height: 250px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #d9e6df;
+}
+.portfolio-profile-copy h2 {
+  margin: 8px 0 8px;
+}
+.portfolio-credentials,
+.portfolio-specialty {
+  margin: 0 0 6px;
+  color: var(--navy);
+  font-weight: 700;
+}
+.portfolio-specialty {
+  color: var(--teal);
+}
+.portfolio-profile-copy > p:not(.portfolio-credentials):not(.portfolio-specialty) {
+  max-width: 640px;
+  margin: 18px 0 22px;
+}
+.portfolio-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.portfolio-service {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+}
+.portfolio-service-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--teal);
+}
+.portfolio-service h3 {
+  margin: 18px 0 10px;
+}
+.portfolio-service ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.portfolio-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.portfolio-contact-list {
+  padding: 26px;
+  border-left: 3px solid var(--teal);
+  background: var(--soft);
+}
+.portfolio-contact-list p {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0 0 15px;
+}
+.portfolio-contact-list a {
+  color: var(--teal);
+}
+@media (max-width: 768px) {
+  .portfolio-profile,
+  .portfolio-contact {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .portfolio-photo {
+    width: 165px;
+    height: 190px;
+  }
+  .portfolio-services {
+    grid-template-columns: 1fr;
+  }
+}
 .care-note {
   padding: 20px 23px;
   background: #f0f5ef;
