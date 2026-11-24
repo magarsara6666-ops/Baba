@@ -14,6 +14,10 @@ import { consultationSchema } from "@/lib/consultation";
 import { track } from "@/lib/analytics";
 import { clinic } from "@/lib/clinic";
 import { z } from "zod";
+
+type MetaPixelWindow = Window & {
+  fbq?: (...args: unknown[]) => void;
+};
 export function ConsultationForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">(
@@ -218,6 +222,12 @@ export function ConsultationForm() {
         }, 10_000);
       }
       setState("success");
+      const metaPixel = (window as MetaPixelWindow).fbq;
+      if (typeof metaPixel === "function") {
+        // Send only the generic conversion event. Never send patient details
+        // or medical information to Meta.
+        metaPixel("track", "Lead");
+      }
       track("consultation_form_submit", {
         method: result.data.method,
       });
